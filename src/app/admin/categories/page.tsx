@@ -82,7 +82,9 @@ export default function CategoriesAdmin() {
       await admin.createCategory({ name: form.name.trim(), description: form.description.trim() || undefined });
       toast.success("Catégorie créée.");
       setCreating(false);
-      load(search);
+      // Recharge la liste (retour page 1 pour voir la nouvelle catégorie)
+      setPage(1);
+      load(search, 1);
     } catch (e: unknown) {
       const msg = e instanceof Error ? e.message : "Erreur lors de la création.";
       toast.error(msg);
