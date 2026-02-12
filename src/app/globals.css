@@ -1,0 +1,58 @@
+@import "tailwindcss";
+@import "react-phone-number-input/style.css";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-montserrat), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: ui-monospace, monospace;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-montserrat), ui-sans-serif, system-ui, sans-serif;
+}
+
+@keyframes loading-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes loading-pulse {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.85;
+    transform: scale(1.02);
+  }
+}
+
+.loading-screen-ring {
+  width: 100px;
+  height: 100px;
+  border: 3px solid #e5e7eb;
+  border-top-color: #03045e;
+  border-radius: 50%;
+  animation: loading-spin 0.9s linear infinite;
+}
+
+.loading-screen-logo {
+  animation: loading-pulse 1.5s ease-in-out infinite;
+}
