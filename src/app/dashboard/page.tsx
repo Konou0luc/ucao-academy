@@ -123,15 +123,15 @@ export default function StudentDashboard() {
 
   return (
     <MainLayout>
-      <div className="flex-1 overflow-y-auto bg-gray-50">
-        <div className="bg-white border-b border-gray-200 px-4 sm:px-6 py-4">
+      <div className="flex-1 overflow-y-auto bg-gray-50 dark:bg-transparent">
+        <div className="border-b border-gray-200 bg-white px-4 py-4 dark:border-gray-700 dark:bg-gray-800 sm:px-6">
           <div className="flex items-center justify-between gap-3">
             <div className="min-w-0">
-              <h1 className="text-xl sm:text-2xl font-bold text-gray-900">Tableau de bord</h1>
-              <p className="text-sm text-gray-600 mt-1">Bienvenue sur votre espace étudiant</p>
+              <h1 className="text-xl font-bold text-gray-900 dark:text-white sm:text-2xl">Tableau de bord</h1>
+              <p className="mt-1 text-sm text-gray-600 dark:text-gray-400">Bienvenue sur votre espace étudiant</p>
             </div>
-            <button className="relative p-2 text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded-lg transition shrink-0" type="button" aria-label="Notifications">
-              <Bell className="w-5 h-5" />
+            <button className="relative shrink-0 rounded-lg p-2 text-gray-600 transition hover:bg-gray-100 hover:text-gray-900 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white" type="button" aria-label="Notifications">
+              <Bell className="h-5 w-5" />
             </button>
           </div>
         </div>
@@ -143,45 +143,45 @@ export default function StudentDashboard() {
             </div>
           )}
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-            <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+          <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
+            <div className="rounded-xl border border-gray-100 bg-white p-6 shadow-sm dark:border-gray-700 dark:bg-gray-800">
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-sm text-gray-600 mb-1">Mes Cours</p>
-                  <p className="text-3xl font-bold text-gray-900">{recentCourses.length}</p>
+                  <p className="mb-1 text-sm text-gray-600 dark:text-gray-400">Mes Cours</p>
+                  <p className="text-3xl font-bold text-gray-900 dark:text-white">{recentCourses.length}</p>
                 </div>
                 <div className="w-12 h-12 bg-[#03045e]/10 rounded-lg flex items-center justify-center">
                   <BookOpen className="w-6 h-6 text-[#03045e]" />
                 </div>
               </div>
             </div>
-            <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+            <div className="rounded-xl border border-gray-100 bg-white p-6 shadow-sm dark:border-gray-700 dark:bg-gray-800">
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-sm text-gray-600 mb-1">Discussions</p>
-                  <p className="text-3xl font-bold text-gray-900">{recentDiscussions.length}</p>
+                  <p className="mb-1 text-sm text-gray-600 dark:text-gray-400">Discussions</p>
+                  <p className="text-3xl font-bold text-gray-900 dark:text-white">{recentDiscussions.length}</p>
                 </div>
                 <div className="w-12 h-12 bg-blue-500/10 rounded-lg flex items-center justify-center">
                   <MessageSquare className="w-6 h-6 text-blue-500" />
                 </div>
               </div>
             </div>
-            <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+            <div className="rounded-xl border border-gray-100 bg-white p-6 shadow-sm dark:border-gray-700 dark:bg-gray-800">
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-sm text-gray-600 mb-1">Événements à venir</p>
-                  <p className="text-3xl font-bold text-gray-900">{upcomingEvents.length}</p>
+                  <p className="mb-1 text-sm text-gray-600 dark:text-gray-400">Événements à venir</p>
+                  <p className="text-3xl font-bold text-gray-900 dark:text-white">{upcomingEvents.length}</p>
                 </div>
                 <div className="w-12 h-12 bg-yellow-500/10 rounded-lg flex items-center justify-center">
                   <Calendar className="w-6 h-6 text-yellow-500" />
                 </div>
               </div>
             </div>
-            <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+            <div className="rounded-xl border border-gray-100 bg-white p-6 shadow-sm dark:border-gray-700 dark:bg-gray-800">
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-sm text-gray-600 mb-1">Examens à venir</p>
-                  <p className="text-3xl font-bold text-gray-900">{examCount}</p>
+                  <p className="mb-1 text-sm text-gray-600 dark:text-gray-400">Examens à venir</p>
+                  <p className="text-3xl font-bold text-gray-900 dark:text-white">{examCount}</p>
                 </div>
                 <div className="w-12 h-12 bg-red-500/10 rounded-lg flex items-center justify-center">
                   <FileText className="w-6 h-6 text-red-500" />
@@ -192,10 +192,10 @@ export default function StudentDashboard() {
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
             <div className="lg:col-span-2 space-y-6">
-              <div className="bg-white rounded-xl shadow-sm border border-gray-100">
-                <div className="p-6 border-b border-gray-100">
+              <div className="rounded-xl border border-gray-100 bg-white shadow-sm dark:border-gray-700 dark:bg-gray-800">
+                <div className="border-b border-gray-100 p-6 dark:border-gray-700">
                   <div className="flex items-center justify-between">
-                    <h2 className="text-lg font-semibold text-gray-900">Mes Cours</h2>
+                    <h2 className="text-lg font-semibold text-gray-900 dark:text-white">Mes Cours</h2>
                     <Link href="/cours" className="text-sm text-[#03045e] hover:text-[#023e8a] font-medium flex items-center gap-1">
                       Voir tout
                       <ChevronRight className="w-4 h-4" />

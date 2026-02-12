@@ -1,6 +1,9 @@
 @import "tailwindcss";
 @import "react-phone-number-input/style.css";
 
+/* Mode sombre piloté par la classe .dark sur le document (toggle topbar) */
+@custom-variant dark (&:where(.dark, .dark *));
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -13,8 +16,14 @@
   --font-mono: ui-monospace, monospace;
 }
 
+/* Thème sombre quand la classe .dark est sur html (toggle topbar) */
+.dark {
+  --background: #0f172a;
+  --foreground: #e2e8f0;
+}
+
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not(.dark) {
     --background: #0a0a0a;
     --foreground: #ededed;
   }
