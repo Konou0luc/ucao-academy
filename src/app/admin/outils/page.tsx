@@ -2,9 +2,6 @@
 import { useEffect, useState, useCallback } from "react";
 import { toast } from "sonner";
 import { outils as outilsApi } from "@/lib/api";
-import PaginationBar from "@/components/PaginationBar";
-
-const PAGE_SIZE = 20;
 
 type OutilItem = { _id: string; title: string; description?: string; url: string; order?: number };
 
@@ -234,7 +231,6 @@ export default function AdminOutilsPage() {
           </table>
         </div>
       )}
-      <PaginationBar page={page} total={total} pageSize={PAGE_SIZE} loading={loading} onPageChange={setPage} itemLabel="outil" />
     </div>
   );
 }

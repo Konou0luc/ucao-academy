@@ -2,7 +2,6 @@
 import { useEffect, useState, useCallback } from "react";
 import { toast } from "sonner";
 import { guides as guidesApi } from "@/lib/api";
-import PaginationBar from "@/components/PaginationBar";
 
 const PAGE_SIZE = 20;
 
@@ -236,7 +235,6 @@ export default function AdminGuidesPage() {
           </table>
         </div>
       )}
-      <PaginationBar page={page} total={total} pageSize={PAGE_SIZE} loading={loading} onPageChange={setPage} itemLabel="guide" />
     </div>
   );
 }
