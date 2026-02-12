@@ -7,7 +7,7 @@ import { auth } from "@/lib/api";
 import {
   FileText, BookOpen, Book, Wrench, BarChart3, Calendar,
   CheckSquare, Euro, FolderOpen, LogOut, LayoutDashboard, Menu, X, User,
-  Sun, Moon
+  Sun, Moon, Bell
 } from "lucide-react";
 import LoadingScreen from "@/components/LoadingScreen";
 
@@ -233,8 +233,28 @@ export default function MainLayout({ children }: MainLayoutProps) {
           </nav>
         </aside>
 
-        {/* Zone de contenu : plus de bouton flottant, contenu propre sous la topbar */}
-        <main className="flex-1 flex flex-col overflow-hidden">
+        {/* Zone de contenu : topbar desktop (notifications + thème) puis contenu */}
+        <main className="flex flex-1 flex-col overflow-hidden">
+          {/* Topbar PC/tablette : icône notifications + changement de thème */}
+          <header className="hidden h-14 shrink-0 items-center justify-end gap-1 border-b border-gray-200 bg-white px-4 dark:border-gray-700 dark:bg-gray-800 lg:flex lg:px-6">
+            <button
+              type="button"
+              className="flex h-10 w-10 items-center justify-center rounded-lg text-gray-600 transition hover:bg-gray-100 hover:text-gray-900 dark:text-white dark:hover:bg-gray-700"
+              aria-label="Notifications"
+              title="Notifications"
+            >
+              <Bell className="h-5 w-5" />
+            </button>
+            <button
+              type="button"
+              onClick={toggleTheme}
+              className="flex h-10 w-10 items-center justify-center rounded-lg text-gray-600 transition hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
+              aria-label={darkMode ? "Mode clair" : "Mode sombre"}
+              title={darkMode ? "Mode clair" : "Mode sombre"}
+            >
+              {darkMode ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
+            </button>
+          </header>
           <div className="flex-1 overflow-y-auto p-4 lg:p-6">
             {children}
           </div>

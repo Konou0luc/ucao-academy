@@ -130,7 +130,8 @@ export default function StudentDashboard() {
               <h1 className="text-xl font-bold text-gray-900 dark:text-white sm:text-2xl">Tableau de bord</h1>
               <p className="mt-1 text-sm text-gray-600 dark:text-gray-400">Bienvenue sur votre espace étudiant</p>
             </div>
-            <button className="relative shrink-0 rounded-lg p-2 text-gray-600 transition hover:bg-gray-100 hover:text-gray-900 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white" type="button" aria-label="Notifications">
+            {/* Icône notifications : visible uniquement sur mobile (sur PC/tablette elle est dans la topbar du layout) */}
+            <button className="relative shrink-0 rounded-lg p-2 text-gray-600 transition hover:bg-gray-100 hover:text-gray-900 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white lg:hidden" type="button" aria-label="Notifications">
               <Bell className="h-5 w-5" />
             </button>
           </div>
