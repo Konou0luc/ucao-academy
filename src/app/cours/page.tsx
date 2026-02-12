@@ -289,8 +289,7 @@ export default function CoursPage() {
               placeholder="Rechercher un cours..."
               value={searchInput}
               onChange={(e) => setSearchInput(e.target.value)}
-              className="w-full pl-10 pr-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#03045e] focus:border-[#03045e] text-sm text-gray-900"
-              style={{ color: '#111827' }}
+              className="w-full rounded-lg border border-gray-300 py-2.5 pl-10 pr-4 text-sm text-gray-900 focus:border-[#03045e] focus:ring-2 focus:ring-[#03045e] dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400"
             />
           </div>
         </div>
@@ -300,35 +299,35 @@ export default function CoursPage() {
           <div className="px-4 sm:px-6 py-4 sm:py-6">
             {/* Breadcrumb */}
             <div className="mb-4">
-              <div className="flex items-center gap-2 text-sm text-gray-600">
-                <span className="text-gray-400">web-academy</span>
-                <ChevronRight className="w-4 h-4 text-gray-400" />
-                <span className="font-medium text-gray-900">cours</span>
+              <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400">
+                <span className="text-gray-400 dark:text-gray-500">web-academy</span>
+                <ChevronRight className="h-4 w-4 text-gray-400" />
+                <span className="font-medium text-gray-900 dark:text-white">cours</span>
               </div>
             </div>
 
             {/* File Tree */}
-            <div className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+            <div className="overflow-hidden rounded-xl border border-gray-100 bg-white shadow-sm dark:border-gray-700 dark:bg-gray-800">
               {error && (
-                <div className="p-4 bg-red-50 border-b border-red-100 text-red-700 text-sm">
+                <div className="border-b border-red-100 bg-red-50 p-4 text-sm text-red-700 dark:border-red-900/50 dark:bg-red-900/20">
                   {error}
                 </div>
               )}
               {loading ? (
                 <div className="py-12 text-center">
-                  <p className="text-gray-600">Chargement des cours...</p>
+                  <p className="text-gray-600 dark:text-gray-400">Chargement des cours...</p>
                 </div>
               ) : (
                 <div className="py-2">
                   {!loading && filteredItems.length > 0 ? (
                     filteredItems.map((item) => renderItem(item, 0))
                   ) : (
-                    <div className="text-center py-12">
-                      <BookOpen className="w-12 h-12 text-gray-400 mx-auto mb-3" />
-                      <p className="text-gray-600">
+                    <div className="py-12 text-center">
+                      <BookOpen className="mx-auto mb-3 h-12 w-12 text-gray-400 dark:text-gray-500" />
+                      <p className="text-gray-600 dark:text-gray-300">
                         {search ? "Aucun cours trouvé" : "Aucun cours disponible"}
                       </p>
-                      <p className="text-sm text-gray-500 mt-1">
+                      <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">
                         {search
                           ? "Essayez de modifier votre recherche"
                           : "Aucun cours n'est disponible pour votre niveau d'étude"}
@@ -342,8 +341,8 @@ export default function CoursPage() {
             {/* Info Footer */}
             {!searchInput && (
               <div className="mt-4">
-                <div className="bg-white rounded-lg border border-gray-100 px-4 py-3">
-                  <div className="flex items-center gap-2 text-sm text-gray-600">
+                <div className="rounded-lg border border-gray-100 bg-white px-4 py-3 dark:border-gray-700 dark:bg-gray-800">
+                  <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400">
                     <BookOpen className="w-4 h-4 text-[#03045e]" />
                     <span className="font-medium">
                       {allItems.filter((item) => item.type === "file").length} cours disponibles pour votre niveau

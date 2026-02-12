@@ -150,11 +150,11 @@ export default function DiscussionsPage() {
           ) : (
           <>
           {/* Statistiques rapides */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
-            <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-4">
+          <div className="mb-6 grid grid-cols-1 gap-4 md:grid-cols-3">
+            <div className="rounded-xl border border-gray-100 bg-white p-4 shadow-sm dark:border-gray-700 dark:bg-gray-800">
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-sm text-gray-600 mb-1">Total discussions</p>
+                  <p className="mb-1 text-sm text-gray-600 dark:text-gray-400">Total discussions</p>
                   <p className="text-2xl font-bold text-gray-900 dark:text-white">{discussions.length}</p>
                 </div>
                 <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
@@ -162,10 +162,10 @@ export default function DiscussionsPage() {
                 </div>
               </div>
             </div>
-            <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-4">
+            <div className="rounded-xl border border-gray-100 bg-white p-4 shadow-sm dark:border-gray-700 dark:bg-gray-800">
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-sm text-gray-600 mb-1">Réponses totales</p>
+                  <p className="mb-1 text-sm text-gray-600 dark:text-gray-400">Réponses totales</p>
                   <p className="text-2xl font-bold text-gray-900 dark:text-white">
                     {discussions.reduce((sum, d) => sum + d.replies_count, 0)}
                   </p>
@@ -175,10 +175,10 @@ export default function DiscussionsPage() {
                 </div>
               </div>
             </div>
-            <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-4">
+            <div className="rounded-xl border border-gray-100 bg-white p-4 shadow-sm dark:border-gray-700 dark:bg-gray-800">
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-sm text-gray-600 mb-1">Discussions actives</p>
+                  <p className="mb-1 text-sm text-gray-600 dark:text-gray-400">Discussions actives</p>
                   <p className="text-2xl font-bold text-gray-900 dark:text-white">{normalDiscussions.length}</p>
                 </div>
                 <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center">
@@ -189,37 +189,35 @@ export default function DiscussionsPage() {
           </div>
 
           {/* Filtres */}
-          <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6 mb-6">
-            <div className="flex items-center gap-2 mb-4">
-              <Filter className="w-5 h-5 text-gray-600" />
-              <h2 className="text-lg font-semibold text-gray-900">Filtres</h2>
+          <div className="mb-6 rounded-xl border border-gray-100 bg-white p-6 shadow-sm dark:border-gray-700 dark:bg-gray-800">
+            <div className="mb-4 flex items-center gap-2">
+              <Filter className="h-5 w-5 text-gray-600 dark:text-gray-400" />
+              <h2 className="text-lg font-semibold text-gray-900 dark:text-white">Filtres</h2>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="mb-2 block text-sm font-medium text-gray-700 dark:text-gray-300">
                   Rechercher
                 </label>
                 <div className="relative">
-                  <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
+                  <Search className="absolute left-3 top-1/2 h-5 w-5 -translate-y-1/2 transform text-gray-400" />
                   <input
                     type="text"
                     placeholder="Rechercher dans les discussions..."
                     value={searchInput}
                     onChange={(e) => setSearchInput(e.target.value)}
-                    className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#03045e] focus:border-[#03045e] text-gray-900"
-                    style={{ color: '#111827' }}
+                    className="w-full rounded-lg border border-gray-300 py-2 pl-10 pr-4 text-gray-900 focus:border-[#03045e] focus:ring-2 focus:ring-[#03045e] dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400"
                   />
                 </div>
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="mb-2 block text-sm font-medium text-gray-700 dark:text-gray-300">
                   Filtrer par cours
                 </label>
                 <select
                   value={selectedCourse}
                   onChange={(e) => setSelectedCourse(e.target.value)}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#03045e] focus:border-[#03045e] bg-white text-gray-900"
-                  style={{ color: '#111827' }}
+                  className="w-full rounded-lg border border-gray-300 bg-white px-4 py-2 text-gray-900 focus:border-[#03045e] focus:ring-2 focus:ring-[#03045e] dark:border-gray-600 dark:bg-gray-700 dark:text-white"
                 >
                   <option value="all" style={{ color: '#111827' }}>Tous les cours</option>
                   {courseOptions.map((c) => (
@@ -233,8 +231,8 @@ export default function DiscussionsPage() {
           {/* Discussions épinglées */}
           {pinnedDiscussions.length > 0 && (
             <div className="mb-6">
-              <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center gap-2">
-                <Pin className="w-5 h-5 text-yellow-500" />
+              <h3 className="mb-4 flex items-center gap-2 text-lg font-semibold text-gray-900 dark:text-white">
+                <Pin className="h-5 w-5 text-yellow-500" />
                 Discussions épinglées
               </h3>
               <div className="space-y-4">
@@ -291,7 +289,7 @@ export default function DiscussionsPage() {
 
           {/* Discussions normales */}
           <div>
-            <h3 className="text-lg font-semibold text-gray-900 mb-4">
+            <h3 className="mb-4 text-lg font-semibold text-gray-900 dark:text-white">
               Toutes les discussions
             </h3>
             {normalDiscussions.length > 0 ? (
@@ -300,7 +298,7 @@ export default function DiscussionsPage() {
                   <div
                     key={discussion.id}
                     onClick={() => router.push(`/discussions/${discussion.id}`)}
-                    className="bg-white rounded-xl shadow-sm border border-gray-100 p-6 hover:shadow-md transition cursor-pointer group"
+                    className="cursor-pointer rounded-xl border border-gray-100 bg-white p-6 shadow-sm transition hover:shadow-md group dark:border-gray-700 dark:bg-gray-800"
                   >
                     <div className="flex items-start gap-4">
                       <div className={`w-12 h-12 ${getAvatarColor(discussion.user.name)} rounded-full flex items-center justify-center text-white font-bold flex-shrink-0`}>

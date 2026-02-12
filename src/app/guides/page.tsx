@@ -33,18 +33,18 @@ export default function GuidesPage() {
               <Loader2 className="w-10 h-10 text-[#03045e] animate-spin" />
             </div>
           ) : error ? (
-            <div className="bg-white border border-gray-100 rounded-xl p-12 text-center max-w-lg mx-auto">
-              <BookOpen className="w-16 h-16 text-gray-400 mx-auto mb-4" />
-              <p className="text-gray-600 mb-4">{error}</p>
-              <Link href="/dashboard" className="inline-flex items-center gap-2 text-[#03045e] hover:underline font-medium">
-                <LayoutDashboard className="w-4 h-4" /> Retour au tableau de bord
+            <div className="mx-auto max-w-lg rounded-xl border border-gray-100 bg-white p-12 text-center dark:border-gray-700 dark:bg-gray-800">
+              <BookOpen className="mx-auto mb-4 h-16 w-16 text-gray-400 dark:text-gray-500" />
+              <p className="mb-4 text-gray-600 dark:text-gray-300">{error}</p>
+              <Link href="/dashboard" className="inline-flex items-center gap-2 font-medium text-[#03045e] hover:underline dark:text-blue-300">
+                <LayoutDashboard className="h-4 w-4" /> Retour au tableau de bord
               </Link>
             </div>
           ) : list.length === 0 ? (
-            <div className="bg-white border border-gray-100 rounded-xl p-12 text-center max-w-lg mx-auto">
-              <BookOpen className="w-16 h-16 text-gray-400 mx-auto mb-4" />
-              <h2 className="text-lg font-semibold text-gray-900 mb-2">Aucun guide pour le moment</h2>
-              <p className="text-gray-600 mb-6">Les guides seront ajoutés par l’administration. Revenez plus tard.</p>
+            <div className="mx-auto max-w-lg rounded-xl border border-gray-100 bg-white p-12 text-center dark:border-gray-700 dark:bg-gray-800">
+              <BookOpen className="mx-auto mb-4 h-16 w-16 text-gray-400 dark:text-gray-500" />
+              <h2 className="mb-2 text-lg font-semibold text-gray-900 dark:text-white">Aucun guide pour le moment</h2>
+              <p className="mb-6 text-gray-600 dark:text-gray-400">Les guides seront ajoutés par l’administration. Revenez plus tard.</p>
               <Link href="/dashboard" className="inline-flex items-center gap-2 px-4 py-2 bg-[#03045e] text-white rounded-lg font-medium hover:bg-[#023e8a] transition">
                 <LayoutDashboard className="w-4 h-4" /> Tableau de bord
               </Link>
@@ -55,10 +55,10 @@ export default function GuidesPage() {
                 <li key={g._id}>
                   <Link
                     href={`/guides/${g._id}`}
-                    className="flex items-center justify-between gap-4 p-4 bg-white border border-gray-200 rounded-xl hover:border-[#03045e]/30 hover:shadow-sm transition"
+                    className="flex items-center justify-between gap-4 rounded-xl border border-gray-200 bg-white p-4 transition hover:border-[#03045e]/30 hover:shadow-sm dark:border-gray-700 dark:bg-gray-800 dark:hover:border-[#03045e]/50"
                   >
-                    <span className="font-medium text-gray-900">{g.title}</span>
-                    <ChevronRight className="w-5 h-5 text-gray-400 flex-shrink-0" />
+                    <span className="font-medium text-gray-900 dark:text-white">{g.title}</span>
+                    <ChevronRight className="h-5 w-5 flex-shrink-0 text-gray-400 dark:text-gray-500" />
                   </Link>
                 </li>
               ))}

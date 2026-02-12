@@ -41,35 +41,35 @@ export default function GuideDetailPage() {
 
   return (
     <MainLayout>
-      <div className="flex-1 overflow-y-auto bg-gray-50">
-        <div className="bg-white border-b border-gray-200 px-6 py-4">
-          <Link href="/guides" className="inline-flex items-center gap-2 text-[#03045e] hover:underline font-medium mb-2">
-            <ArrowLeft className="w-4 h-4" /> Retour aux guides
+      <div className="flex-1 overflow-y-auto bg-gray-50 dark:bg-transparent">
+        <div className="border-b border-gray-200 bg-white px-6 py-4 dark:border-gray-700 dark:bg-gray-800">
+          <Link href="/guides" className="mb-2 inline-flex items-center gap-2 font-medium text-[#03045e] hover:underline dark:text-blue-300">
+            <ArrowLeft className="h-4 w-4" /> Retour aux guides
           </Link>
           {loading && (
-            <div className="flex items-center gap-2 text-gray-600">
-              <Loader2 className="w-5 h-5 animate-spin" /> Chargement...
+            <div className="flex items-center gap-2 text-gray-600 dark:text-gray-400">
+              <Loader2 className="h-5 w-5 animate-spin" /> Chargement...
             </div>
           )}
-          {error && <p className="text-red-600 font-medium">{error}</p>}
+          {error && <p className="font-medium text-red-600 dark:text-red-400">{error}</p>}
           {guide && <h1 className="mt-2 text-2xl font-bold text-gray-900 dark:text-white">{guide.title}</h1>}
         </div>
         <div className="p-6">
           {loading && (
             <div className="flex justify-center py-12">
-              <Loader2 className="w-10 h-10 text-[#03045e] animate-spin" />
+              <Loader2 className="h-10 w-10 animate-spin text-[#03045e]" />
             </div>
           )}
           {error && !loading && (
-            <div className="bg-white rounded-xl border border-gray-100 p-8 text-center">
-              <p className="text-gray-600 mb-4">{error}</p>
-              <Link href="/guides" className="text-[#03045e] hover:underline font-medium">Retour aux guides</Link>
+            <div className="rounded-xl border border-gray-100 bg-white p-8 text-center dark:border-gray-700 dark:bg-gray-800">
+              <p className="mb-4 text-gray-600 dark:text-gray-300">{error}</p>
+              <Link href="/guides" className="font-medium text-[#03045e] hover:underline dark:text-blue-300">Retour aux guides</Link>
             </div>
           )}
           {guide && !loading && (
-            <article className="bg-white rounded-xl border border-gray-100 p-6 max-w-3xl">
+            <article className="max-w-3xl rounded-xl border border-gray-100 bg-white p-6 dark:border-gray-700 dark:bg-gray-800">
               <div
-                className="prose prose-gray max-w-none text-gray-700 whitespace-pre-wrap"
+                className="prose prose-gray max-w-none whitespace-pre-wrap text-gray-700 dark:prose-invert dark:text-gray-300"
                 dangerouslySetInnerHTML={{ __html: guide.content.replace(/\n/g, "<br />") }}
               />
             </article>

@@ -202,22 +202,22 @@ export default function StudentDashboard() {
                     </Link>
                   </div>
                 </div>
-                <div className="p-6 space-y-4">
+                <div className="space-y-4 p-6">
                   {recentCourses.length === 0 ? (
-                    <p className="text-gray-500 text-sm">Aucun cours pour votre niveau.</p>
+                    <p className="text-sm text-gray-500 dark:text-gray-400">Aucun cours pour votre niveau.</p>
                   ) : (
                     recentCourses.map((course) => (
                       <Link
                         key={course.id}
                         href={`/cours/${course.id}`}
-                        className="block p-4 rounded-lg border border-gray-100 hover:border-[#03045e]/30 hover:shadow-md transition-all group"
+                        className="block rounded-lg border border-gray-100 p-4 transition-all hover:border-[#03045e]/30 hover:shadow-md group dark:border-gray-700 dark:hover:border-[#03045e]/50"
                       >
                         <div className="flex items-start justify-between">
                           <div className="flex-1">
-                            <h3 className="font-semibold text-gray-900 group-hover:text-[#03045e] transition mb-1">
+                            <h3 className="mb-1 font-semibold text-gray-900 transition group-hover:text-[#03045e] dark:text-white">
                               {course.title}
                             </h3>
-                            <div className="flex items-center gap-3 text-sm text-gray-600">
+                            <div className="flex items-center gap-3 text-sm text-gray-600 dark:text-gray-400">
                               <span>{course.filiere || "—"}</span>
                               <span>•</span>
                               <span>{formatNiveau(course.niveau)}</span>
@@ -231,30 +231,30 @@ export default function StudentDashboard() {
                 </div>
               </div>
 
-              <div className="bg-white rounded-xl shadow-sm border border-gray-100">
-                <div className="p-6 border-b border-gray-100">
+              <div className="rounded-xl border border-gray-100 bg-white shadow-sm dark:border-gray-700 dark:bg-gray-800">
+                <div className="border-b border-gray-100 p-6 dark:border-gray-700">
                   <div className="flex items-center justify-between">
-                    <h2 className="text-lg font-semibold text-gray-900">Discussions récentes</h2>
-                    <Link href="/discussions" className="text-sm text-[#03045e] hover:text-[#023e8a] font-medium flex items-center gap-1">
+                    <h2 className="text-lg font-semibold text-gray-900 dark:text-white">Discussions récentes</h2>
+                    <Link href="/discussions" className="flex items-center gap-1 text-sm font-medium text-[#03045e] hover:text-[#023e8a]">
                       Voir tout
-                      <ChevronRight className="w-4 h-4" />
+                      <ChevronRight className="h-4 w-4" />
                     </Link>
                   </div>
                 </div>
-                <div className="p-6 space-y-4">
+                <div className="space-y-4 p-6">
                   {recentDiscussions.length === 0 ? (
-                    <p className="text-gray-500 text-sm">Aucune discussion.</p>
+                    <p className="text-sm text-gray-500 dark:text-gray-400">Aucune discussion.</p>
                   ) : (
                     recentDiscussions.map((discussion) => (
                       <Link
                         key={discussion.id}
                         href={`/discussions/${discussion.id}`}
-                        className="block p-4 rounded-lg border border-gray-100 hover:border-blue-200 hover:bg-blue-50/50 transition-all group"
+                        className="block rounded-lg border border-gray-100 p-4 transition-all hover:border-blue-200 hover:bg-blue-50/50 group dark:border-gray-700 dark:hover:bg-gray-700"
                       >
-                        <h3 className="font-medium text-gray-900 group-hover:text-[#03045e] transition mb-2">
+                        <h3 className="mb-2 font-medium text-gray-900 transition group-hover:text-[#03045e] dark:text-white">
                           {discussion.title}
                         </h3>
-                        <div className="flex items-center gap-4 text-sm text-gray-600">
+                        <div className="flex items-center gap-4 text-sm text-gray-600 dark:text-gray-400">
                           <span className="flex items-center gap-1">
                             <Users className="w-4 h-4" />
                             {discussion.author}
@@ -273,64 +273,64 @@ export default function StudentDashboard() {
             </div>
 
             <div className="space-y-6">
-              <div className="bg-white rounded-xl shadow-sm border border-gray-100">
-                <div className="p-6 border-b border-gray-100">
-                  <h2 className="text-lg font-semibold text-gray-900">Événements à venir</h2>
+              <div className="rounded-xl border border-gray-100 bg-white shadow-sm dark:border-gray-700 dark:bg-gray-800">
+                <div className="border-b border-gray-100 p-6 dark:border-gray-700">
+                  <h2 className="text-lg font-semibold text-gray-900 dark:text-white">Événements à venir</h2>
                 </div>
-                <div className="p-6 space-y-4">
+                <div className="space-y-4 p-6">
                   {upcomingEvents.length === 0 ? (
-                    <p className="text-gray-500 text-sm">Aucun événement à venir.</p>
+                    <p className="text-sm text-gray-500 dark:text-gray-400">Aucun événement à venir.</p>
                   ) : (
                     upcomingEvents.map((event) => (
-                      <div key={event.id} className="p-4 rounded-lg border border-gray-100 hover:shadow-md transition">
+                      <div key={event.id} className="rounded-lg border border-gray-100 p-4 transition hover:shadow-md dark:border-gray-700">
                         <div className="flex items-start gap-3">
                           <div
-                            className={`w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 ${
-                              event.type === "examen" ? "bg-red-100" : event.type === "controle" ? "bg-orange-100" : "bg-blue-100"
+                            className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-lg ${
+                              event.type === "examen" ? "bg-red-100 dark:bg-red-900/30" : event.type === "controle" ? "bg-orange-100 dark:bg-orange-900/30" : "bg-blue-100 dark:bg-blue-900/30"
                             }`}
                           >
-                            <FileText className="w-5 h-5 text-red-600" />
+                            <FileText className="h-5 w-5 text-red-600 dark:text-red-400" />
                           </div>
-                          <div className="flex-1 min-w-0">
-                            <h3 className="font-medium text-gray-900 text-sm mb-1">{event.title}</h3>
-                            <div className="flex items-center gap-2 text-xs text-gray-600">
-                              <Calendar className="w-3 h-3" />
+                          <div className="min-w-0 flex-1">
+                            <h3 className="mb-1 text-sm font-medium text-gray-900 dark:text-white">{event.title}</h3>
+                            <div className="flex items-center gap-2 text-xs text-gray-600 dark:text-gray-400">
+                              <Calendar className="h-3 w-3" />
                               <span>{event.date}</span>
                               <span>•</span>
-                              <Clock className="w-3 h-3" />
+                              <Clock className="h-3 w-3" />
                               <span>{event.time}</span>
                             </div>
-                            <p className="text-xs text-gray-500 mt-1">{event.location}</p>
+                            <p className="mt-1 text-xs text-gray-500 dark:text-gray-400">{event.location}</p>
                           </div>
                         </div>
                       </div>
                     ))
                   )}
-                  <Link href="/calendrier" className="block text-center text-sm text-[#03045e] hover:text-[#023e8a] font-medium py-2">
+                  <Link href="/calendrier" className="block py-2 text-center text-sm font-medium text-[#03045e] hover:text-[#023e8a]">
                     Voir le calendrier complet
                   </Link>
                 </div>
               </div>
 
-              <div className="bg-white rounded-xl shadow-sm border border-gray-100">
-                <div className="p-6 border-b border-gray-100">
-                  <h2 className="text-lg font-semibold text-gray-900">Actions rapides</h2>
+              <div className="rounded-xl border border-gray-100 bg-white shadow-sm dark:border-gray-700 dark:bg-gray-800">
+                <div className="border-b border-gray-100 p-6 dark:border-gray-700">
+                  <h2 className="text-lg font-semibold text-gray-900 dark:text-white">Actions rapides</h2>
                 </div>
-                <div className="p-6 space-y-2">
-                  <Link href="/cours" className="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-50 transition text-gray-700 hover:text-[#03045e]">
-                    <BookOpen className="w-5 h-5" />
+                <div className="space-y-2 p-6">
+                  <Link href="/cours" className="flex items-center gap-3 rounded-lg p-3 text-gray-700 transition hover:bg-gray-50 hover:text-[#03045e] dark:text-gray-200 dark:hover:bg-gray-700">
+                    <BookOpen className="h-5 w-5" />
                     <span className="font-medium">Parcourir les cours</span>
                   </Link>
-                  <Link href="/discussions" className="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-50 transition text-gray-700 hover:text-[#03045e]">
-                    <MessageSquare className="w-5 h-5" />
+                  <Link href="/discussions" className="flex items-center gap-3 rounded-lg p-3 text-gray-700 transition hover:bg-gray-50 hover:text-[#03045e] dark:text-gray-200 dark:hover:bg-gray-700">
+                    <MessageSquare className="h-5 w-5" />
                     <span className="font-medium">Rejoindre une discussion</span>
                   </Link>
-                  <Link href="/emploi-du-temps" className="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-50 transition text-gray-700 hover:text-[#03045e]">
-                    <Calendar className="w-5 h-5" />
+                  <Link href="/emploi-du-temps" className="flex items-center gap-3 rounded-lg p-3 text-gray-700 transition hover:bg-gray-50 hover:text-[#03045e] dark:text-gray-200 dark:hover:bg-gray-700">
+                    <Calendar className="h-5 w-5" />
                     <span className="font-medium">Voir mon emploi du temps</span>
                   </Link>
-                  <Link href="/results" className="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-50 transition text-gray-700 hover:text-[#03045e]">
-                    <FileText className="w-5 h-5" />
+                  <Link href="/results" className="flex items-center gap-3 rounded-lg p-3 text-gray-700 transition hover:bg-gray-50 hover:text-[#03045e] dark:text-gray-200 dark:hover:bg-gray-700">
+                    <FileText className="h-5 w-5" />
                     <span className="font-medium">Consulter mes résultats</span>
                   </Link>
                 </div>

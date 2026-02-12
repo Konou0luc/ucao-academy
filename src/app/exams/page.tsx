@@ -68,57 +68,56 @@ export default function ExamsPage() {
 
   return (
     <MainLayout>
-      <div className="flex-1 overflow-y-auto bg-gray-50">
-        <div className="bg-white border-b border-gray-200 px-6 py-4">
+      <div className="flex-1 overflow-y-auto bg-gray-50 dark:bg-transparent">
+        <div className="border-b border-gray-200 bg-white px-6 py-4 dark:border-gray-700 dark:bg-gray-800">
           <div className="flex items-center justify-between">
             <div>
               <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Examens</h1>
-              <p className="text-sm text-gray-600 mt-1">Consultez vos examens et évaluations à venir</p>
+              <p className="mt-1 text-sm text-gray-600 dark:text-gray-400">Consultez vos examens et évaluations à venir</p>
             </div>
             <select
               value={filter}
               onChange={(e) => setFilter(e.target.value as "all" | "À venir" | "Terminé")}
-              className="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#03045e] focus:border-[#03045e] bg-white text-gray-900"
-              style={{ color: "#111827" }}
+              className="rounded-lg border border-gray-300 bg-white px-4 py-2 text-gray-900 focus:border-[#03045e] focus:ring-2 focus:ring-[#03045e] dark:border-gray-600 dark:bg-gray-700 dark:text-white"
             >
-              <option value="all" style={{ color: "#111827" }}>Tous</option>
-              <option value="À venir" style={{ color: "#111827" }}>À venir</option>
-              <option value="Terminé" style={{ color: "#111827" }}>Terminé</option>
+              <option value="all">Tous</option>
+              <option value="À venir">À venir</option>
+              <option value="Terminé">Terminé</option>
             </select>
           </div>
         </div>
         <div className="p-6">
           {error && (
-            <div className="mb-6 p-4 bg-red-50 border border-red-100 rounded-xl text-red-700 text-sm">
+            <div className="mb-6 rounded-xl border border-red-100 bg-red-50 p-4 text-sm text-red-700 dark:border-red-900/50 dark:bg-red-900/20">
               {error}
             </div>
           )}
           {loading ? (
-            <p className="text-gray-600">Chargement...</p>
+            <p className="text-gray-600 dark:text-gray-400">Chargement...</p>
           ) : filteredExams.length === 0 ? (
-            <div className="bg-white border border-gray-100 rounded-xl p-12 text-center">
-              <p className="text-gray-600">Aucun examen ou évaluation pour le moment.</p>
+            <div className="rounded-xl border border-gray-100 bg-white p-12 text-center dark:border-gray-700 dark:bg-gray-800">
+              <p className="text-gray-600 dark:text-gray-300">Aucun examen ou évaluation pour le moment.</p>
             </div>
           ) : (
             <div className="space-y-4">
               {filteredExams.map((exam) => (
-                <div key={exam.id} className="bg-white border border-gray-100 rounded-xl p-6 hover:shadow-md transition-shadow">
+                <div key={exam.id} className="rounded-xl border border-gray-100 bg-white p-6 transition-shadow hover:shadow-md dark:border-gray-700 dark:bg-gray-800">
                   <div className="flex items-start justify-between">
                     <div className="flex-1">
-                      <div className="flex items-center gap-3 mb-2">
-                        <span className="px-3 py-1 bg-blue-100 text-blue-700 rounded text-xs font-semibold">
+                      <div className="mb-2 flex items-center gap-3">
+                        <span className="rounded bg-blue-100 px-3 py-1 text-xs font-semibold text-blue-700 dark:bg-blue-900/50 dark:text-blue-200">
                           {exam.type}
                         </span>
                         <span
-                          className={`px-3 py-1 rounded text-xs font-semibold ${
-                            exam.status === "À venir" ? "bg-yellow-100 text-yellow-700" : "bg-gray-100 text-gray-700"
+                          className={`rounded px-3 py-1 text-xs font-semibold ${
+                            exam.status === "À venir" ? "bg-yellow-100 text-yellow-700 dark:bg-yellow-900/50 dark:text-yellow-200" : "bg-gray-100 text-gray-700 dark:bg-gray-700 dark:text-gray-300"
                           }`}
                         >
                           {exam.status}
                         </span>
                       </div>
                       <h3 className="mb-3 text-xl font-bold text-gray-900 dark:text-white">{exam.title}</h3>
-                      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-sm text-gray-600">
+                      <div className="grid grid-cols-1 gap-4 text-sm text-gray-600 dark:text-gray-400 sm:grid-cols-3">
                         <div>
                           <span className="font-semibold">Date :</span>{" "}
                           {exam.date ? new Date(exam.date).toLocaleDateString("fr-FR") : "—"}

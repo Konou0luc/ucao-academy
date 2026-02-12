@@ -165,8 +165,8 @@ export default function ProfilPage() {
   if (loading) {
     return (
       <MainLayout>
-        <div className="flex-1 overflow-y-auto bg-gray-50 flex items-center justify-center p-6">
-          <p className="text-gray-600">Chargement du profil...</p>
+        <div className="flex flex-1 items-center justify-center overflow-y-auto bg-gray-50 p-6 dark:bg-transparent">
+          <p className="text-gray-600 dark:text-gray-400">Chargement du profil...</p>
         </div>
       </MainLayout>
     );
@@ -175,8 +175,8 @@ export default function ProfilPage() {
   if (error || !profile) {
     return (
       <MainLayout>
-        <div className="flex-1 overflow-y-auto bg-gray-50 p-6">
-          <div className="bg-red-50 border border-red-100 rounded-xl p-6 text-red-700">
+        <div className="flex-1 overflow-y-auto bg-gray-50 p-6 dark:bg-transparent">
+          <div className="rounded-xl border border-red-100 bg-red-50 p-6 text-red-700 dark:border-red-900/50 dark:bg-red-900/20">
             {error || "Profil introuvable."} Veuillez vous reconnecter.
           </div>
           <button
@@ -215,7 +215,7 @@ export default function ProfilPage() {
               <div className="flex gap-2">
                 <button
                   onClick={handleCancel}
-                  className="px-4 py-2 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-50 transition flex items-center gap-2"
+                  className="flex items-center gap-2 rounded-lg border border-gray-300 px-4 py-2 text-gray-700 transition hover:bg-gray-50 dark:border-gray-600 dark:text-gray-200 dark:hover:bg-gray-700"
                 >
                   <X className="w-4 h-4" />
                   Annuler
@@ -236,47 +236,47 @@ export default function ProfilPage() {
         <div className="p-6">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
             <div className="lg:col-span-1">
-              <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6 mb-6">
+              <div className="mb-6 rounded-xl border border-gray-100 bg-white p-6 shadow-sm dark:border-gray-700 dark:bg-gray-800">
                 <div className="flex flex-col items-center">
-                  <div className="w-32 h-32 bg-[#03045e] rounded-full flex items-center justify-center text-white text-4xl font-bold mb-4">
+                  <div className="mb-4 flex h-32 w-32 items-center justify-center rounded-full bg-[#03045e] text-4xl font-bold text-white">
                     {getInitials(profile.name)}
                   </div>
                   <h2 className="mb-1 text-xl font-bold text-gray-900 dark:text-white">{displayName}</h2>
-                  <p className="text-sm text-gray-600 mb-4">{profile.filiere || "—"}</p>
+                  <p className="mb-4 text-sm text-gray-600 dark:text-gray-400">{profile.filiere || "—"}</p>
                   {profile.niveau && (
-                    <p className="text-sm text-[#03045e] font-medium">{formatNiveau(profile.niveau)}</p>
+                    <p className="text-sm font-medium text-[#03045e] dark:text-blue-400">{formatNiveau(profile.niveau)}</p>
                   )}
                 </div>
               </div>
 
-              <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
-                <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center gap-2">
-                  <GraduationCap className="w-5 h-5 text-[#03045e]" />
+              <div className="rounded-xl border border-gray-100 bg-white p-6 shadow-sm dark:border-gray-700 dark:bg-gray-800">
+                <h3 className="mb-4 flex items-center gap-2 text-lg font-semibold text-gray-900 dark:text-white">
+                  <GraduationCap className="h-5 w-5 text-[#03045e] dark:text-blue-400" />
                   Informations académiques
                 </h3>
                 <div className="space-y-3">
                   <div>
-                    <p className="text-xs text-gray-500 mb-1">Numéro d&apos;étudiant</p>
-                    <p className="text-sm font-medium text-gray-900">{profile.student_number || "—"}</p>
+                    <p className="mb-1 text-xs text-gray-500 dark:text-gray-400">Numéro d&apos;étudiant</p>
+                    <p className="text-sm font-medium text-gray-900 dark:text-white">{profile.student_number || "—"}</p>
                   </div>
                   <div>
-                    <p className="text-xs text-gray-500 mb-1">Institut</p>
-                    <p className="text-sm font-medium text-gray-900">
+                    <p className="mb-1 text-xs text-gray-500 dark:text-gray-400">Institut</p>
+                    <p className="text-sm font-medium text-gray-900 dark:text-white">
                       {profile.institute ? (instituteLabel[profile.institute] || profile.institute) : "—"}
                     </p>
                   </div>
                   <div>
-                    <p className="text-xs text-gray-500 mb-1">Filière</p>
-                    <p className="text-sm font-medium text-gray-900">{profile.filiere || "—"}</p>
+                    <p className="mb-1 text-xs text-gray-500 dark:text-gray-400">Filière</p>
+                    <p className="text-sm font-medium text-gray-900 dark:text-white">{profile.filiere || "—"}</p>
                   </div>
                   <div>
-                    <p className="text-xs text-gray-500 mb-1">Niveau</p>
-                    <p className="text-sm font-medium text-gray-900">{formatNiveau(profile.niveau)}</p>
+                    <p className="mb-1 text-xs text-gray-500 dark:text-gray-400">Niveau</p>
+                    <p className="text-sm font-medium text-gray-900 dark:text-white">{formatNiveau(profile.niveau)}</p>
                   </div>
                   {platformSettings && (
                     <div>
-                      <p className="text-xs text-gray-500 mb-1">Semestre en cours</p>
-                      <p className="text-sm font-medium text-gray-900">
+                      <p className="mb-1 text-xs text-gray-500 dark:text-gray-400">Semestre en cours</p>
+                      <p className="text-sm font-medium text-gray-900 dark:text-white">
                         {semesterLabel[platformSettings.current_semester] || platformSettings.current_semester} {platformSettings.current_academic_year}
                       </p>
                     </div>
@@ -287,33 +287,32 @@ export default function ProfilPage() {
 
             <div className="lg:col-span-2 space-y-6">
               {saveError && (
-                <div className="bg-red-50 border border-red-200 text-red-700 rounded-xl px-4 py-3">
+                <div className="rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-red-700 dark:border-red-900/50 dark:bg-red-900/20">
                   {saveError}
                 </div>
               )}
-              <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
-                <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center gap-2">
-                  <User className="w-5 h-5 text-[#03045e]" />
+              <div className="rounded-xl border border-gray-100 bg-white p-6 shadow-sm dark:border-gray-700 dark:bg-gray-800">
+                <h3 className="mb-4 flex items-center gap-2 text-lg font-semibold text-gray-900 dark:text-white">
+                  <User className="h-5 w-5 text-[#03045e] dark:text-blue-400" />
                   Informations personnelles
                 </h3>
                 <div className="space-y-4">
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">Nom complet</label>
+                    <label className="mb-2 block text-sm font-medium text-gray-700 dark:text-gray-300">Nom complet</label>
                     {isEditing ? (
                       <input
                         type="text"
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                        className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#03045e] focus:border-[#03045e] text-gray-900"
-                        style={{ color: "#111827" }}
+                        className="w-full rounded-lg border border-gray-300 px-4 py-2 text-gray-900 focus:border-[#03045e] focus:ring-2 focus:ring-[#03045e] dark:border-gray-600 dark:bg-gray-700 dark:text-white"
                       />
                     ) : (
-                      <p className="text-gray-900">{profile.name}</p>
+                      <p className="text-gray-900 dark:text-white">{profile.name}</p>
                     )}
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2 flex items-center gap-2">
-                      <Mail className="w-4 h-4" />
+                    <label className="mb-2 flex items-center gap-2 text-sm font-medium text-gray-700 dark:text-gray-300">
+                      <Mail className="h-4 w-4" />
                       Email
                     </label>
                     {isEditing ? (
@@ -321,16 +320,15 @@ export default function ProfilPage() {
                         type="email"
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                        className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#03045e] focus:border-[#03045e] text-gray-900"
-                        style={{ color: "#111827" }}
+                        className="w-full rounded-lg border border-gray-300 px-4 py-2 text-gray-900 focus:border-[#03045e] focus:ring-2 focus:ring-[#03045e] dark:border-gray-600 dark:bg-gray-700 dark:text-white"
                       />
                     ) : (
-                      <p className="text-gray-900">{profile.email}</p>
+                      <p className="text-gray-900 dark:text-white">{profile.email}</p>
                     )}
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2 flex items-center gap-2">
-                      <Phone className="w-4 h-4" />
+                    <label className="mb-2 flex items-center gap-2 text-sm font-medium text-gray-700 dark:text-gray-300">
+                      <Phone className="h-4 w-4" />
                       Téléphone
                     </label>
                     {isEditing ? (
@@ -340,16 +338,15 @@ export default function ProfilPage() {
                         value={formData.phone}
                         onChange={(value) => setFormData({ ...formData, phone: value ?? undefined })}
                         placeholder="Numéro de téléphone"
-                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#03045e] focus:border-[#03045e] text-gray-900 [&_.PhoneInputInput]:outline-none [&_.PhoneInputInput]:flex-1 [&_.PhoneInputCountrySelectArrow]:hidden"
-                        style={{ color: "#111827" }}
+                        className="w-full rounded-lg border border-gray-300 px-3 py-2 text-gray-900 focus:border-[#03045e] focus:ring-2 focus:ring-[#03045e] dark:border-gray-600 dark:bg-gray-700 dark:text-white [&_.PhoneInputInput]:outline-none [&_.PhoneInputInput]:flex-1 [&_.PhoneInputCountrySelectArrow]:hidden"
                       />
                     ) : (
-                      <p className="text-gray-900">{profile.phone || "—"}</p>
+                      <p className="text-gray-900 dark:text-white">{profile.phone || "—"}</p>
                     )}
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2 flex items-center gap-2">
-                      <MapPin className="w-4 h-4" />
+                    <label className="mb-2 flex items-center gap-2 text-sm font-medium text-gray-700 dark:text-gray-300">
+                      <MapPin className="h-4 w-4" />
                       Adresse
                     </label>
                     {isEditing ? (
@@ -357,12 +354,11 @@ export default function ProfilPage() {
                         type="text"
                         value={formData.address}
                         onChange={(e) => setFormData({ ...formData, address: e.target.value })}
-                        className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#03045e] focus:border-[#03045e] text-gray-900"
-                        style={{ color: "#111827" }}
+                        className="w-full rounded-lg border border-gray-300 px-4 py-2 text-gray-900 placeholder-gray-500 focus:border-[#03045e] focus:ring-2 focus:ring-[#03045e] dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400"
                         placeholder="Non renseigné"
                       />
                     ) : (
-                      <p className="text-gray-900">{profile.address || "—"}</p>
+                      <p className="text-gray-900 dark:text-white">{profile.address || "—"}</p>
                     )}
                   </div>
                 </div>

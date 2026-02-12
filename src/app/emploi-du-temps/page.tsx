@@ -207,21 +207,21 @@ export default function EmploiDuTempsPage() {
             <div className="flex-1 overflow-auto">
           <div className="min-w-full">
             {/* Days Header */}
-            <div className="grid grid-cols-7 border-b-2 border-gray-300 bg-gray-50 sticky top-0 z-10">
-              <div className="p-3 border-r border-gray-300">
-                <div className="text-xs text-gray-600 font-medium uppercase">Heure</div>
+            <div className="sticky top-0 z-10 grid grid-cols-7 border-b-2 border-gray-300 bg-gray-50 dark:border-gray-600 dark:bg-gray-800">
+              <div className="border-r border-gray-300 p-3 dark:border-gray-600">
+                <div className="text-xs font-medium uppercase text-gray-600 dark:text-gray-400">Heure</div>
               </div>
               {weekDates.map((date, index) => (
                 <div
                   key={index}
-                  className={`p-3 border-r border-gray-300 text-center ${
-                    isToday(date) ? "bg-blue-50" : ""
+                  className={`border-r border-gray-300 p-3 text-center dark:border-gray-600 ${
+                    isToday(date) ? "bg-blue-50 dark:bg-blue-900/30" : ""
                   }`}
                 >
-                  <div className="text-xs text-gray-600 font-medium mb-1 uppercase">
+                  <div className="mb-1 text-xs font-medium uppercase text-gray-600 dark:text-gray-400">
                     {jours[index].slice(0, 3)}
                   </div>
-                  <div className={`text-base font-bold ${isToday(date) ? "text-blue-600" : "text-gray-900"}`}>
+                  <div className={`text-base font-bold ${isToday(date) ? "text-blue-600 dark:text-blue-400" : "text-gray-900 dark:text-white"}`}>
                     {date.getDate().toString().padStart(2, "0")}
                   </div>
                 </div>
@@ -231,13 +231,13 @@ export default function EmploiDuTempsPage() {
             {/* Time Slots */}
             <div className="grid grid-cols-7">
               {/* Time Column */}
-              <div className="border-r-2 border-gray-300 bg-gray-50/50">
+              <div className="border-r-2 border-gray-300 bg-gray-50/50 dark:border-gray-600 dark:bg-gray-800/50">
                 {heures.map((heure, index) => (
                   <div
                     key={index}
-                    className="h-12 border-b border-gray-200 flex items-start justify-end pr-3 pt-1"
+                    className="flex h-12 items-start justify-end border-b border-gray-200 pr-3 pt-1 dark:border-gray-700"
                   >
-                    <span className="text-xs text-gray-600 font-medium">
+                    <span className="text-xs font-medium text-gray-600 dark:text-gray-400">
                       {index % 2 === 0 ? heure : ""}
                     </span>
                   </div>
@@ -254,14 +254,14 @@ export default function EmploiDuTempsPage() {
                 return (
                   <div
                     key={dayIndex}
-                    className={`border-r-2 border-gray-300 relative ${
-                      isToday(date) ? "bg-blue-50/20" : "bg-white"
+                    className={`relative border-r-2 border-gray-300 dark:border-gray-600 ${
+                      isToday(date) ? "bg-blue-50/20 dark:bg-blue-900/20" : "bg-white dark:bg-gray-800"
                     }`}
                   >
                     {heures.map((_, hourIndex) => (
                       <div
                         key={hourIndex}
-                        className="h-12 border-b border-gray-200"
+                        className="h-12 border-b border-gray-200 dark:border-gray-700"
                       />
                     ))}
 

@@ -67,40 +67,40 @@ export default function RessourcesPage() {
               <Loader2 className="w-10 h-10 text-[#03045e] animate-spin" />
             </div>
           ) : error ? (
-            <div className="bg-white border border-gray-100 rounded-xl p-12 text-center">
-              <Library className="w-16 h-16 text-gray-400 mx-auto mb-4" />
-              <h2 className="text-lg font-semibold text-gray-900 mb-2">Erreur de chargement</h2>
-              <p className="text-gray-600 max-w-md mx-auto mb-4">{error}</p>
-              <Link href="/cours" className="text-[#03045e] hover:underline font-medium">Voir mes cours</Link>
+            <div className="rounded-xl border border-gray-100 bg-white p-12 text-center dark:border-gray-700 dark:bg-gray-800">
+              <Library className="mx-auto mb-4 h-16 w-16 text-gray-400 dark:text-gray-500" />
+              <h2 className="mb-2 text-lg font-semibold text-gray-900 dark:text-white">Erreur de chargement</h2>
+              <p className="mx-auto mb-4 max-w-md text-gray-600 dark:text-gray-400">{error}</p>
+              <Link href="/cours" className="font-medium text-[#03045e] hover:underline dark:text-blue-300">Voir mes cours</Link>
             </div>
           ) : items.length === 0 ? (
-            <div className="bg-white border border-gray-100 rounded-xl p-12 text-center">
-              <Library className="w-16 h-16 text-gray-400 mx-auto mb-4" />
-              <h2 className="text-lg font-semibold text-gray-900 mb-2">Aucune ressource pour le moment</h2>
-              <p className="text-gray-600 max-w-md mx-auto mb-4">
+            <div className="rounded-xl border border-gray-100 bg-white p-12 text-center dark:border-gray-700 dark:bg-gray-800">
+              <Library className="mx-auto mb-4 h-16 w-16 text-gray-400 dark:text-gray-500" />
+              <h2 className="mb-2 text-lg font-semibold text-gray-900 dark:text-white">Aucune ressource pour le moment</h2>
+              <p className="mx-auto mb-4 max-w-md text-gray-600 dark:text-gray-400">
                 Les ressources de vos cours apparaîtront ici. En attendant, consultez chaque cours pour accéder à ses documents.
               </p>
               <Link
                 href="/cours"
-                className="inline-flex items-center gap-2 px-4 py-2 bg-[#03045e] text-white rounded-lg font-medium hover:bg-[#023e8a] transition"
+                className="inline-flex items-center gap-2 rounded-lg bg-[#03045e] px-4 py-2 font-medium text-white transition hover:bg-[#023e8a]"
               >
-                <BookOpen className="w-4 h-4" /> Voir mes cours
+                <BookOpen className="h-4 w-4" /> Voir mes cours
               </Link>
             </div>
           ) : (
             <div className="space-y-4">
-              <p className="text-sm text-gray-600">
+              <p className="text-sm text-gray-600 dark:text-gray-400">
                 {items.length} ressource{items.length !== 1 ? "s" : ""} • Cliquez pour télécharger ou ouvrir le fichier.
               </p>
-              <ul className="bg-white border border-gray-200 rounded-xl divide-y divide-gray-100 overflow-hidden">
+              <ul className="overflow-hidden rounded-xl border border-gray-200 bg-white divide-y divide-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:divide-gray-700">
                 {items.map(({ courseId, courseTitle, resource }) => (
-                  <li key={`${courseId}-${resource._id}`} className="flex items-center gap-4 px-4 py-3 hover:bg-gray-50">
-                    <span className="flex-shrink-0 text-gray-400">{iconForType(resource.type)}</span>
-                    <div className="flex-1 min-w-0">
-                      <p className="font-medium text-gray-900 truncate">{resource.name}</p>
-                      <p className="text-sm text-gray-500 truncate">
+                  <li key={`${courseId}-${resource._id}`} className="flex items-center gap-4 px-4 py-3 hover:bg-gray-50 dark:hover:bg-gray-700/50">
+                    <span className="flex-shrink-0 text-gray-400 dark:text-gray-500">{iconForType(resource.type)}</span>
+                    <div className="min-w-0 flex-1">
+                      <p className="truncate font-medium text-gray-900 dark:text-white">{resource.name}</p>
+                      <p className="truncate text-sm text-gray-500 dark:text-gray-400">
                         Cours :{" "}
-                        <Link href={`/cours/${courseId}`} className="text-[#03045e] hover:underline">
+                        <Link href={`/cours/${courseId}`} className="text-[#03045e] hover:underline dark:text-blue-300">
                           {courseTitle}
                         </Link>
                       </p>
@@ -110,9 +110,9 @@ export default function RessourcesPage() {
                       target="_blank"
                       rel="noopener noreferrer"
                       download={resource.name}
-                      className="flex-shrink-0 inline-flex items-center gap-2 px-3 py-2 text-sm font-medium text-[#03045e] bg-[#03045e]/10 rounded-lg hover:bg-[#03045e]/20 transition"
+                      className="inline-flex flex-shrink-0 items-center gap-2 rounded-lg bg-[#03045e]/10 px-3 py-2 text-sm font-medium text-[#03045e] transition hover:bg-[#03045e]/20 dark:bg-[#03045e]/30 dark:text-blue-300 dark:hover:bg-[#03045e]/40"
                     >
-                      <Download className="w-4 h-4" /> Télécharger
+                      <Download className="h-4 w-4" /> Télécharger
                     </a>
                   </li>
                 ))}

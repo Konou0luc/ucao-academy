@@ -70,29 +70,28 @@ export default function ActualitesPage() {
             </div>
           )}
           {/* Recherche */}
-          <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6 mb-6">
+          <div className="mb-6 rounded-xl border border-gray-100 bg-white p-6 shadow-sm dark:border-gray-700 dark:bg-gray-800">
             <div className="relative">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
+              <Search className="absolute left-3 top-1/2 h-5 w-5 -translate-y-1/2 transform text-gray-400" />
               <input
                 type="text"
                 placeholder="Rechercher dans les actualités..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#03045e] focus:border-[#03045e] text-gray-900"
-                style={{ color: '#111827' }}
+                className="w-full rounded-lg border border-gray-300 py-2 pl-10 pr-4 text-gray-900 focus:border-[#03045e] focus:ring-2 focus:ring-[#03045e] dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400"
               />
             </div>
           </div>
 
           {loading ? (
-            <div className="py-12 text-center text-gray-600">Chargement des actualités...</div>
+            <div className="py-12 text-center text-gray-600 dark:text-gray-400">Chargement des actualités...</div>
           ) : filteredNews.length > 0 ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
               {filteredNews.map((news) => (
                 <div
                   key={news.id}
                   onClick={() => router.push(`/actualites/${news.id}`)}
-                  className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition cursor-pointer"
+                  className="cursor-pointer overflow-hidden rounded-xl border border-gray-100 bg-white shadow-sm transition hover:shadow-md dark:border-gray-700 dark:bg-gray-800"
                 >
                   {news.image ? (
                     isVideoUrl(news.image) ? (
@@ -116,17 +115,17 @@ export default function ActualitesPage() {
                     </div>
                   )}
                   <div className="p-6">
-                    <div className="flex items-center gap-2 mb-3 text-sm text-gray-500">
-                      <User className="w-4 h-4" />
+                    <div className="mb-3 flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400">
+                      <User className="h-4 w-4" />
                       <span>{news.created_by.name}</span>
                       <span>•</span>
-                      <Calendar className="w-4 h-4" />
+                      <Calendar className="h-4 w-4" />
                       <span>{new Date(news.created_at).toLocaleDateString("fr-FR")}</span>
                     </div>
                     <h3 className="mb-3 line-clamp-2 text-xl font-bold text-gray-900 dark:text-white">
                       {news.title}
                     </h3>
-                    <p className="text-gray-600 line-clamp-3 mb-4">
+                    <p className="mb-4 line-clamp-3 text-gray-600 dark:text-gray-400">
                       {news.content}
                     </p>
                     <div className="flex items-center gap-2 text-[#03045e] font-medium text-sm">
@@ -138,9 +137,9 @@ export default function ActualitesPage() {
               ))}
             </div>
           ) : (
-            <div className="text-center py-12 bg-white rounded-xl border border-gray-100">
-              <Newspaper className="w-12 h-12 text-gray-400 mx-auto mb-4" />
-              <p className="text-gray-600 text-lg">
+            <div className="rounded-xl border border-gray-100 bg-white py-12 text-center dark:border-gray-700 dark:bg-gray-800">
+              <Newspaper className="mx-auto mb-4 h-12 w-12 text-gray-400 dark:text-gray-500" />
+              <p className="text-lg text-gray-600 dark:text-gray-300">
                 Aucune actualité ne correspond à votre recherche.
               </p>
             </div>

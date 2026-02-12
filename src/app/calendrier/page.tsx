@@ -131,58 +131,55 @@ export default function CalendrierPage() {
             </div>
           )}
           {/* Filtres */}
-          <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6 mb-6">
-            <div className="flex items-center gap-2 mb-4">
-              <Filter className="w-5 h-5 text-gray-600" />
-              <h2 className="text-lg font-semibold text-gray-900">Filtres</h2>
+          <div className="mb-6 rounded-xl border border-gray-100 bg-white p-6 shadow-sm dark:border-gray-700 dark:bg-gray-800">
+            <div className="mb-4 flex items-center gap-2">
+              <Filter className="h-5 w-5 text-gray-600 dark:text-gray-400" />
+              <h2 className="text-lg font-semibold text-gray-900 dark:text-white">Filtres</h2>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="mb-2 block text-sm font-medium text-gray-700 dark:text-gray-300">
                   Filière
                 </label>
                 <select
                   value={selectedFiliere}
                   onChange={(e) => setSelectedFiliere(e.target.value)}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#03045e] focus:border-[#03045e] bg-white text-gray-900"
-                  style={{ color: '#111827' }}
+                  className="w-full rounded-lg border border-gray-300 bg-white px-4 py-2 text-gray-900 focus:border-[#03045e] focus:ring-2 focus:ring-[#03045e] dark:border-gray-600 dark:bg-gray-700 dark:text-white"
                 >
                   {filiereOptions.map((filiere) => (
-                    <option key={filiere} value={filiere} style={{ color: '#111827' }}>
+                    <option key={filiere} value={filiere}>
                       {filiere}
                     </option>
                   ))}
                 </select>
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="mb-2 block text-sm font-medium text-gray-700 dark:text-gray-300">
                   Niveau
                 </label>
                 <select
                   value={selectedNiveau}
                   onChange={(e) => setSelectedNiveau(e.target.value)}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#03045e] focus:border-[#03045e] bg-white text-gray-900"
-                  style={{ color: '#111827' }}
+                  className="w-full rounded-lg border border-gray-300 bg-white px-4 py-2 text-gray-900 focus:border-[#03045e] focus:ring-2 focus:ring-[#03045e] dark:border-gray-600 dark:bg-gray-700 dark:text-white"
                 >
                   {niveaux.map((niveau) => (
-                    <option key={niveau} value={niveau} style={{ color: '#111827' }}>
+                    <option key={niveau} value={niveau}>
                       {niveau === "Tous" ? "Tous" : niveau === "licence1" ? "Licence 1" : niveau === "licence2" ? "Licence 2" : niveau === "licence3" ? "Licence 3" : niveau}
                     </option>
                   ))}
                 </select>
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="mb-2 block text-sm font-medium text-gray-700 dark:text-gray-300">
                   Type
                 </label>
                 <select
                   value={selectedType}
                   onChange={(e) => setSelectedType(e.target.value)}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#03045e] focus:border-[#03045e] bg-white text-gray-900"
-                  style={{ color: '#111827' }}
+                  className="w-full rounded-lg border border-gray-300 bg-white px-4 py-2 text-gray-900 focus:border-[#03045e] focus:ring-2 focus:ring-[#03045e] dark:border-gray-600 dark:bg-gray-700 dark:text-white"
                 >
                   {types.map((type) => (
-                    <option key={type} value={type} style={{ color: '#111827' }}>
+                    <option key={type} value={type}>
                       {type.charAt(0).toUpperCase() + type.slice(1)}
                     </option>
                   ))}
@@ -197,9 +194,9 @@ export default function CalendrierPage() {
           ) : sortedDates.length > 0 ? (
             <div className="space-y-6">
               {sortedDates.map((date) => (
-                <div key={date} className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
-                  <div className="flex items-center gap-3 mb-6">
-                    <Calendar className="w-6 h-6 text-[#03045e]" />
+                <div key={date} className="rounded-xl border border-gray-100 bg-white p-6 shadow-sm dark:border-gray-700 dark:bg-gray-800">
+                  <div className="mb-6 flex items-center gap-3">
+                    <Calendar className="h-6 w-6 text-[#03045e]" />
                     <h3 className="text-xl font-bold text-gray-900 dark:text-white">
                       {new Date(date).toLocaleDateString("fr-FR", {
                         weekday: "long",
@@ -213,7 +210,7 @@ export default function CalendrierPage() {
                     {groupedByDate[date].map((evaluation) => (
                       <div
                         key={evaluation.id}
-                        className="p-5 bg-gray-50 rounded-lg border border-gray-200 hover:shadow-md transition-shadow"
+                        className="rounded-lg border border-gray-200 bg-gray-50 p-5 transition-shadow hover:shadow-md dark:border-gray-600 dark:bg-gray-700/50"
                       >
                         <div className="flex items-start justify-between mb-4">
                           <div className="flex-1">
@@ -221,25 +218,25 @@ export default function CalendrierPage() {
                               <span className={`px-3 py-1 rounded-md text-xs font-semibold border ${getTypeColor(evaluation.type)}`}>
                                 {evaluation.type.toUpperCase()}
                               </span>
-                              <span className="px-3 py-1 bg-blue-100 text-blue-700 text-xs rounded-md font-medium">
+                              <span className="rounded-md bg-blue-100 px-3 py-1 text-xs font-medium text-blue-700 dark:bg-blue-900/50 dark:text-blue-200">
                                 {evaluation.filiere}
                               </span>
-                              <span className="px-3 py-1 bg-purple-100 text-purple-700 text-xs rounded-md font-medium">
+                              <span className="rounded-md bg-purple-100 px-3 py-1 text-xs font-medium text-purple-700 dark:bg-purple-900/50 dark:text-purple-200">
                                 {evaluation.niveau}
                               </span>
                             </div>
-                            <h4 className="text-lg font-semibold text-gray-900 mb-2">
+                            <h4 className="mb-2 text-lg font-semibold text-gray-900 dark:text-white">
                               {evaluation.title}
                             </h4>
-                            <p className="text-gray-600 text-sm mb-2 font-medium">
+                            <p className="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400">
                               {evaluation.course_title}
                             </p>
-                            <p className="text-gray-600 text-sm">
+                            <p className="text-sm text-gray-600 dark:text-gray-400">
                               {evaluation.description}
                             </p>
                           </div>
                         </div>
-                        <div className="flex items-center gap-6 text-sm text-gray-600 pt-3 border-t border-gray-200">
+                        <div className="flex items-center gap-6 border-t border-gray-200 pt-3 text-sm text-gray-600 dark:border-gray-600 dark:text-gray-400">
                           <span className="flex items-center gap-2">
                             <Clock className="w-4 h-4" />
                             {evaluation.start_time} - {evaluation.end_time}
@@ -256,8 +253,8 @@ export default function CalendrierPage() {
               ))}
             </div>
           ) : (
-            <div className="text-center py-12 bg-white rounded-xl border border-gray-100">
-              <p className="text-gray-600 text-lg">
+            <div className="rounded-xl border border-gray-100 bg-white py-12 text-center dark:border-gray-700 dark:bg-gray-800">
+              <p className="text-lg text-gray-600 dark:text-gray-300">
                 Aucune évaluation ne correspond à vos critères.
               </p>
             </div>
