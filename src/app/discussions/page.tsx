@@ -123,11 +123,11 @@ export default function DiscussionsPage() {
     <MainLayout>
       <div className="flex-1 overflow-y-auto bg-gray-50">
         {/* Header */}
-        <div className="bg-white border-b border-gray-200 px-4 sm:px-6 py-4">
+        <div className="border-b border-gray-200 bg-white px-4 py-4 dark:border-gray-700 dark:bg-gray-800 sm:px-6">
           <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
             <div className="min-w-0">
-              <h1 className="text-xl sm:text-2xl font-bold text-gray-900 truncate">Forum de Discussion</h1>
-              <p className="text-sm text-gray-600 mt-1">Échangez avec vos camarades et formateurs</p>
+              <h1 className="truncate text-xl font-bold text-gray-900 dark:text-white sm:text-2xl">Forum de Discussion</h1>
+              <p className="mt-1 text-sm text-gray-600 dark:text-gray-400">Échangez avec vos camarades et formateurs</p>
             </div>
             <Link
               href="/discussions/nouveau"
@@ -155,7 +155,7 @@ export default function DiscussionsPage() {
               <div className="flex items-center justify-between">
                 <div>
                   <p className="text-sm text-gray-600 mb-1">Total discussions</p>
-                  <p className="text-2xl font-bold text-gray-900">{discussions.length}</p>
+                  <p className="text-2xl font-bold text-gray-900 dark:text-white">{discussions.length}</p>
                 </div>
                 <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
                   <MessageSquare className="w-6 h-6 text-blue-600" />
@@ -166,7 +166,7 @@ export default function DiscussionsPage() {
               <div className="flex items-center justify-between">
                 <div>
                   <p className="text-sm text-gray-600 mb-1">Réponses totales</p>
-                  <p className="text-2xl font-bold text-gray-900">
+                  <p className="text-2xl font-bold text-gray-900 dark:text-white">
                     {discussions.reduce((sum, d) => sum + d.replies_count, 0)}
                   </p>
                 </div>
@@ -179,7 +179,7 @@ export default function DiscussionsPage() {
               <div className="flex items-center justify-between">
                 <div>
                   <p className="text-sm text-gray-600 mb-1">Discussions actives</p>
-                  <p className="text-2xl font-bold text-gray-900">{normalDiscussions.length}</p>
+                  <p className="text-2xl font-bold text-gray-900 dark:text-white">{normalDiscussions.length}</p>
                 </div>
                 <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center">
                   <Pin className="w-6 h-6 text-purple-600" />

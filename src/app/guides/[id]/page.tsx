@@ -52,7 +52,7 @@ export default function GuideDetailPage() {
             </div>
           )}
           {error && <p className="text-red-600 font-medium">{error}</p>}
-          {guide && <h1 className="text-2xl font-bold text-gray-900 mt-2">{guide.title}</h1>}
+          {guide && <h1 className="mt-2 text-2xl font-bold text-gray-900 dark:text-white">{guide.title}</h1>}
         </div>
         <div className="p-6">
           {loading && (

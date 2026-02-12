@@ -263,14 +263,14 @@ export default function CoursPage() {
 
   return (
     <MainLayout>
-      <div className="flex-1 overflow-y-auto bg-gray-50">
+      <div className="flex-1 overflow-y-auto bg-gray-50 dark:bg-transparent">
         {/* Header */}
-        <div className="bg-white border-b border-gray-200 px-4 sm:px-6 py-4">
+        <div className="border-b border-gray-200 bg-white px-4 py-4 dark:border-gray-700 dark:bg-gray-800 sm:px-6">
           <div className="mb-4">
             <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
               <div className="min-w-0">
-                <h1 className="text-xl sm:text-2xl font-bold text-gray-900">Cours</h1>
-                <p className="text-sm text-gray-600 mt-1">
+                <h1 className="text-xl font-bold text-gray-900 dark:text-white sm:text-2xl">Cours</h1>
+                <p className="mt-1 text-sm text-gray-600 dark:text-gray-400">
                   Parcourez les cours organisés par filière et niveau d&apos;étude
                 </p>
               </div>

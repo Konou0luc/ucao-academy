@@ -8,7 +8,7 @@ export default function FinancePage() {
     <MainLayout>
       <div className="flex-1 overflow-y-auto bg-gray-50">
         <div className="bg-white border-b border-gray-200 px-6 py-4">
-          <h1 className="text-2xl font-bold text-gray-900">Finance</h1>
+          <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Finance</h1>
           <p className="text-sm text-gray-600 mt-1">Gérez vos transactions et paiements</p>
         </div>
         <div className="p-6">

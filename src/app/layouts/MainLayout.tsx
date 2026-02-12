@@ -97,19 +97,11 @@ export default function MainLayout({ children }: MainLayoutProps) {
 
   return (
     <div className="flex h-screen flex-col bg-gray-50 dark:bg-gray-900">
-      {/* Topbar : hamburger à gauche, mode jour/nuit à droite */}
-      <header className="flex h-14 shrink-0 items-center justify-between border-b border-gray-200 bg-white px-4 dark:border-gray-700 dark:bg-gray-800">
+      {/* Topbar : uniquement sur mobile — hamburger à gauche, mode jour/nuit à droite */}
+      <header className="flex h-14 shrink-0 items-center justify-between border-b border-gray-200 bg-white px-4 dark:border-gray-700 dark:bg-gray-800 lg:hidden">
         <button
           type="button"
-          onClick={() => {
-            if (window.innerWidth >= 1024) {
-              // Desktop : on plie/déplie simplement la sidebar
-              setSidebarOpen((o) => !o);
-            } else {
-              // Mobile : on ouvre/ferme le panneau latéral
-              setMobileMenuOpen((open) => !open);
-            }
-          }}
+          onClick={() => setMobileMenuOpen((open) => !open)}
           className="flex h-10 w-10 items-center justify-center rounded-lg text-gray-600 transition hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700"
           aria-label="Menu"
         >
@@ -129,7 +121,7 @@ export default function MainLayout({ children }: MainLayoutProps) {
       </header>
 
       <div className="flex flex-1 overflow-hidden">
-        {/* Overlay mobile */}
+        {/* Overlay mobile : clic ferme le sidebar (pas de croix dans le sidebar) */}
         {mobileMenuOpen && (
           <div
             className="fixed inset-0 z-40 bg-black/50 lg:hidden"
@@ -138,15 +130,15 @@ export default function MainLayout({ children }: MainLayoutProps) {
           />
         )}
 
-        {/* Sidebar : sur mobile en overlay sous la topbar, sur desktop à gauche du contenu */}
+        {/* Sidebar : mobile = pleine hauteur (top-0, h-screen), sans croix ; desktop = à gauche */}
         <aside
           className={`${
             sidebarOpen ? "w-64" : "w-20"
-          } fixed left-0 top-14 z-50 flex h-[calc(100vh-3.5rem)] flex-col border-r border-blue-800/30 bg-[#1e3a5f] text-white shadow-lg transition-all duration-300 lg:static lg:top-0 lg:h-full ${
+          } fixed left-0 top-0 z-50 flex h-screen flex-col border-r border-blue-800/30 bg-[#1e3a5f] text-white shadow-lg transition-all duration-300 lg:static lg:h-full ${
             mobileMenuOpen ? "translate-x-0" : "-translate-x-full lg:translate-x-0"
           }`}
         >
-          <div className="flex h-14 shrink-0 items-center justify-between border-b border-blue-800/30 px-4 lg:py-4 lg:px-6">
+          <div className="flex shrink-0 items-center justify-between border-b border-blue-800/30 px-4 py-4 lg:px-6">
             <div className="flex items-center gap-3">
               <div className="relative h-10 w-10 shrink-0">
                 <Image src="/images/logo.png" alt="Logo UCAO-UUT" fill className="object-contain" />
@@ -158,6 +150,7 @@ export default function MainLayout({ children }: MainLayoutProps) {
                 </div>
               )}
             </div>
+            {/* Bouton réduire/agrandir : uniquement sur desktop (pas de croix sur mobile) */}
             <button
               type="button"
               onClick={() => setSidebarOpen(!sidebarOpen)}

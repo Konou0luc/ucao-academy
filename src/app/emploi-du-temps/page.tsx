@@ -151,14 +151,14 @@ export default function EmploiDuTempsPage() {
     <MainLayout>
       <div className="flex-1 flex flex-col overflow-hidden bg-white">
         {/* Header */}
-        <header className="bg-white border-b border-gray-200 px-4 sm:px-6 lg:px-8 py-4 sm:py-6">
+        <header className="border-b border-gray-200 bg-white px-4 py-4 dark:border-gray-700 dark:bg-gray-800 sm:px-6 sm:py-6 lg:px-8">
           <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
             <div className="min-w-0">
-              <h1 className="text-xl sm:text-2xl font-bold text-gray-900 flex items-center gap-2 sm:gap-3">
-                <Calendar className="w-5 h-5 sm:w-6 sm:h-6 text-gray-700 shrink-0" />
+              <h1 className="flex items-center gap-2 text-xl font-bold text-gray-900 dark:text-white sm:gap-3 sm:text-2xl">
+                <Calendar className="h-5 w-5 shrink-0 text-gray-700 dark:text-gray-300 sm:h-6 sm:w-6" />
                 Planning
               </h1>
-              <div className="text-gray-500 text-sm font-medium mt-1">
+              <div className="mt-1 text-sm font-medium text-gray-500 dark:text-gray-400">
                 {currentWeek.toLocaleDateString("fr-FR", { month: "long", year: "numeric" })}
               </div>
             </div>

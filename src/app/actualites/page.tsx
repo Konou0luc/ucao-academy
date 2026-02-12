@@ -52,12 +52,12 @@ export default function ActualitesPage() {
 
   return (
     <MainLayout>
-      <div className="flex-1 overflow-y-auto bg-gray-50">
+      <div className="flex-1 overflow-y-auto bg-gray-50 dark:bg-transparent">
         {/* Header */}
-        <div className="bg-white border-b border-gray-200 px-4 sm:px-6 py-4">
+        <div className="border-b border-gray-200 bg-white px-4 py-4 dark:border-gray-700 dark:bg-gray-800 sm:px-6">
           <div className="min-w-0">
-            <h1 className="text-xl sm:text-2xl font-bold text-gray-900">Actualités de l&apos;Université</h1>
-            <p className="text-sm text-gray-600 mt-1">
+            <h1 className="text-xl font-bold text-gray-900 dark:text-white sm:text-2xl">Actualités de l&apos;Université</h1>
+            <p className="mt-1 text-sm text-gray-600 dark:text-gray-400">
               Restez informé des dernières nouvelles et annonces de l&apos;UCAO-UUT
             </p>
           </div>
@@ -123,7 +123,7 @@ export default function ActualitesPage() {
                       <Calendar className="w-4 h-4" />
                       <span>{new Date(news.created_at).toLocaleDateString("fr-FR")}</span>
                     </div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-3 line-clamp-2">
+                    <h3 className="mb-3 line-clamp-2 text-xl font-bold text-gray-900 dark:text-white">
                       {news.title}
                     </h3>
                     <p className="text-gray-600 line-clamp-3 mb-4">

@@ -176,8 +176,8 @@ export default function DiscussionDetailPage() {
               <ArrowLeft className="w-5 h-5 text-gray-600" />
             </Link>
             <div className="flex-1">
-              <h1 className="text-2xl font-bold text-gray-900">Discussion</h1>
-              <p className="text-sm text-gray-600 mt-1">
+              <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Discussion</h1>
+              <p className="mt-1 text-sm text-gray-600 dark:text-gray-400">
                 Participez à la conversation et partagez vos connaissances
               </p>
             </div>
@@ -217,7 +217,7 @@ export default function DiscussionDetailPage() {
                   </div>
                   <div className="flex-1">
                     <div className="flex items-center gap-3 mb-2">
-                      <h3 className="font-semibold text-gray-900">
+                      <h3 className="font-semibold text-gray-900 dark:text-white">
                         {discussion.user.name}
                       </h3>
                       <span className="text-xs text-gray-500 flex items-center gap-1">
@@ -239,7 +239,7 @@ export default function DiscussionDetailPage() {
             <div>
               <div className="flex items-center gap-2 mb-4">
                 <MessageSquare className="w-5 h-5 text-[#03045e]" />
-                <h2 className="text-xl font-bold text-gray-900">
+                <h2 className="text-xl font-bold text-gray-900 dark:text-white">
                   {discussion.replies.length} Réponse{discussion.replies.length > 1 ? "s" : ""}
                 </h2>
               </div>

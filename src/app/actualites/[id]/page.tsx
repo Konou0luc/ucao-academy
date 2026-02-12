@@ -198,8 +198,8 @@ export default function ActualiteDetailPage() {
               <ArrowLeft className="w-5 h-5 text-gray-600" />
             </Link>
             <div>
-              <h1 className="text-2xl font-bold text-gray-900">Actualité</h1>
-              <p className="text-sm text-gray-600 mt-1">
+              <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Actualité</h1>
+              <p className="mt-1 text-sm text-gray-600 dark:text-gray-400">
                 Détails de l&apos;actualité
               </p>
             </div>
@@ -252,7 +252,7 @@ export default function ActualiteDetailPage() {
                 </div>
 
                 {/* Title */}
-                <h1 className="text-3xl font-bold text-gray-900 mb-6 leading-tight">
+                <h1 className="mb-6 text-3xl font-bold leading-tight text-gray-900 dark:text-white">
                   {news.title}
                 </h1>
 

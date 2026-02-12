@@ -160,8 +160,8 @@ export default function CourseDetailPage() {
               <ArrowLeft className="w-5 h-5 text-gray-600" />
             </Link>
             <div>
-              <h1 className="text-2xl font-bold text-gray-900">Détails du cours</h1>
-              <p className="text-sm text-gray-600 mt-1">
+              <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Détails du cours</h1>
+              <p className="mt-1 text-sm text-gray-600 dark:text-gray-400">
                 Consultez et téléchargez les ressources du cours
               </p>
             </div>
@@ -185,10 +185,10 @@ export default function CourseDetailPage() {
                     {course.category}
                   </span>
                 </div>
-                <h1 className="text-3xl font-bold text-gray-900 mb-4">
+                <h1 className="mb-4 text-3xl font-bold text-gray-900 dark:text-white">
                   {course.title}
                 </h1>
-                <p className="text-lg text-gray-600 mb-6">
+                <p className="mb-6 text-lg text-gray-600 dark:text-gray-400">
                   {course.description}
                 </p>
                 <div className="flex items-center gap-6 text-sm text-gray-600">
@@ -207,7 +207,7 @@ export default function CourseDetailPage() {
 
               {/* Description complète */}
               <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
-                <h2 className="text-xl font-bold text-gray-900 mb-4">
+                <h2 className="mb-4 text-xl font-bold text-gray-900 dark:text-white">
                   À propos de ce cours
                 </h2>
                 <div 
@@ -222,8 +222,8 @@ export default function CourseDetailPage() {
                 if (!video) return null;
                 return (
                   <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
-                    <h2 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
-                      <Video className="w-6 h-6 text-[#03045e]" />
+                    <h2 className="mb-4 flex items-center gap-2 text-xl font-bold text-gray-900 dark:text-white">
+                      <Video className="h-6 w-6 text-[#03045e]" />
                       Vidéo du cours
                     </h2>
                     <div className="aspect-video w-full max-w-3xl rounded-lg overflow-hidden bg-black">
@@ -246,8 +246,8 @@ export default function CourseDetailPage() {
               {/* Modules du cours */}
               {(course.modules?.length ?? 0) > 0 && (
               <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
-                <h2 className="text-xl font-bold text-gray-900 mb-4">
-                  Programme du cours
+<h2 className="mb-4 text-xl font-bold text-gray-900 dark:text-white">
+                Programme du cours
                 </h2>
                 <div className="space-y-3">
                   {course.modules!.map((module, index) => (

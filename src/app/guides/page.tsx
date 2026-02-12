@@ -22,10 +22,10 @@ export default function GuidesPage() {
 
   return (
     <MainLayout>
-      <div className="flex-1 overflow-y-auto bg-gray-50">
-        <div className="bg-white border-b border-gray-200 px-6 py-4">
-          <h1 className="text-2xl font-bold text-gray-900">Guides</h1>
-          <p className="text-sm text-gray-600 mt-1">Consultez les guides pour vous aider dans vos études</p>
+      <div className="flex-1 overflow-y-auto bg-gray-50 dark:bg-transparent">
+        <div className="border-b border-gray-200 bg-white px-6 py-4 dark:border-gray-700 dark:bg-gray-800">
+          <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Guides</h1>
+          <p className="mt-1 text-sm text-gray-600 dark:text-gray-400">Consultez les guides pour vous aider dans vos études</p>
         </div>
         <div className="p-6">
           {loading ? (

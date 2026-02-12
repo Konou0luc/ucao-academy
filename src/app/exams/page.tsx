@@ -72,7 +72,7 @@ export default function ExamsPage() {
         <div className="bg-white border-b border-gray-200 px-6 py-4">
           <div className="flex items-center justify-between">
             <div>
-              <h1 className="text-2xl font-bold text-gray-900">Examens</h1>
+              <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Examens</h1>
               <p className="text-sm text-gray-600 mt-1">Consultez vos examens et évaluations à venir</p>
             </div>
             <select
@@ -117,7 +117,7 @@ export default function ExamsPage() {
                           {exam.status}
                         </span>
                       </div>
-                      <h3 className="text-xl font-bold text-gray-900 mb-3">{exam.title}</h3>
+                      <h3 className="mb-3 text-xl font-bold text-gray-900 dark:text-white">{exam.title}</h3>
                       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-sm text-gray-600">
                         <div>
                           <span className="font-semibold">Date :</span>{" "}

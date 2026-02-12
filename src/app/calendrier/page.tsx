@@ -115,10 +115,10 @@ export default function CalendrierPage() {
     <MainLayout>
       <div className="flex-1 overflow-y-auto bg-gray-50">
         {/* Header */}
-        <div className="bg-white border-b border-gray-200 px-6 py-4">
+        <div className="border-b border-gray-200 bg-white dark:border-gray-700 dark:bg-gray-800 px-6 py-4">
           <div>
-            <h1 className="text-2xl font-bold text-gray-900">Calendrier des Évaluations</h1>
-            <p className="text-sm text-gray-600 mt-1">
+            <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Calendrier des Évaluations</h1>
+            <p className="mt-1 text-sm text-gray-600 dark:text-gray-400">
               Consultez les dates et horaires de vos examens, contrôles, TP et projets
             </p>
           </div>
@@ -200,7 +200,7 @@ export default function CalendrierPage() {
                 <div key={date} className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
                   <div className="flex items-center gap-3 mb-6">
                     <Calendar className="w-6 h-6 text-[#03045e]" />
-                    <h3 className="text-xl font-bold text-gray-900">
+                    <h3 className="text-xl font-bold text-gray-900 dark:text-white">
                       {new Date(date).toLocaleDateString("fr-FR", {
                         weekday: "long",
                         year: "numeric",
