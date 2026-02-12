@@ -240,21 +240,21 @@ export default function DiscussionsPage() {
                   <div
                     key={discussion.id}
                     onClick={() => router.push(`/discussions/${discussion.id}`)}
-                    className="bg-gradient-to-r from-yellow-50 to-orange-50 rounded-xl shadow-sm border-2 border-yellow-300 p-6 hover:shadow-md transition cursor-pointer group"
+                    className="cursor-pointer rounded-xl border-2 border-yellow-300 bg-gradient-to-r from-yellow-50 to-orange-50 p-6 shadow-sm transition hover:shadow-md group dark:border-gray-600 dark:from-gray-800 dark:to-gray-800 dark:hover:shadow-lg"
                   >
                     <div className="flex items-start gap-4">
-                      <div className={`w-12 h-12 ${getAvatarColor(discussion.user.name)} rounded-full flex items-center justify-center text-white font-bold flex-shrink-0`}>
+                      <div className={`flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full font-bold text-white ${getAvatarColor(discussion.user.name)}`}>
                         {getInitials(discussion.user.name)}
                       </div>
-                      <div className="flex-1 min-w-0">
-                        <div className="flex items-center gap-2 mb-2 flex-wrap">
-                          <span className="px-2 py-1 bg-yellow-400 text-yellow-900 text-xs rounded-md font-semibold flex items-center gap-1">
-                            <Pin className="w-3 h-3" />
+                      <div className="min-w-0 flex-1">
+                        <div className="mb-2 flex flex-wrap items-center gap-2">
+                          <span className="flex items-center gap-1 rounded-md bg-yellow-400 px-2 py-1 text-xs font-semibold text-yellow-900 dark:bg-yellow-500/40 dark:text-yellow-200">
+                            <Pin className="h-3 w-3" />
                             Épinglé
                           </span>
                           {discussion.course_title && (
-                            <span className="px-2 py-1 bg-[#03045e] text-white text-xs rounded-md font-medium flex items-center gap-1">
-                              <BookOpen className="w-3 h-3" />
+                            <span className="flex items-center gap-1 rounded-md bg-[#03045e] px-2 py-1 text-xs font-medium text-white dark:bg-gray-600 dark:text-white">
+                              <BookOpen className="h-3 w-3" />
                               {discussion.course_title}
                             </span>
                           )}
@@ -336,9 +336,9 @@ export default function DiscussionsPage() {
                 ))}
               </div>
             ) : (
-              <div className="text-center py-12 bg-white rounded-xl border border-gray-100">
-                <MessageSquare className="w-12 h-12 text-gray-400 mx-auto mb-3" />
-                <p className="text-gray-600 text-lg">
+              <div className="rounded-xl border border-gray-100 bg-white py-12 text-center dark:border-gray-700 dark:bg-gray-800">
+                <MessageSquare className="mx-auto mb-3 h-12 w-12 text-gray-400 dark:text-gray-500" />
+                <p className="text-lg text-gray-600 dark:text-white">
                   Aucune discussion trouvée.
                 </p>
               </div>
