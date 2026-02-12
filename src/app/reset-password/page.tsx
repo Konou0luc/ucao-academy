@@ -70,7 +70,7 @@ function ResetPasswordForm() {
             <div className="w-10 h-10 relative">
               <Image src="/images/logo.png" alt="Logo" fill className="object-contain" />
             </div>
-            <span className="text-2xl font-bold text-[#03045e]">Web Academy</span>
+            <span className="text-2xl font-bold text-[#03045e]">UCAO Academy</span>
           </div>
           <p className="text-gray-600 mb-6">Ce lien de réinitialisation est invalide ou incomplet. Veuillez refaire une demande depuis la page « Mot de passe oublié ».</p>
           <Link href="/forgot-password" className="inline-block px-6 py-3 bg-[#03045e] text-white rounded-lg font-semibold hover:bg-[#023e8a] transition">
@@ -109,7 +109,7 @@ function ResetPasswordForm() {
               <Image src="/images/logo.png" alt="Logo UCAO-UUT" fill className="object-contain" />
             </div>
             <div>
-              <h1 className="text-2xl font-bold">Web Academy</h1>
+              <h1 className="text-2xl font-bold">UCAO Academy</h1>
               <p className="text-sm text-white/80">UCAO-UUT</p>
             </div>
           </div>
@@ -125,7 +125,7 @@ function ResetPasswordForm() {
             <div className="w-10 h-10 relative">
               <Image src="/images/logo.png" alt="Logo" fill className="object-contain" />
             </div>
-            <span className="text-2xl font-bold text-[#03045e]">Web Academy</span>
+            <span className="text-2xl font-bold text-[#03045e]">UCAO Academy</span>
           </div>
           <h2 className="text-2xl font-semibold text-gray-900 mb-2">Choisir un nouveau mot de passe</h2>
           <p className="text-gray-600 mb-6">Saisissez puis confirmez votre nouveau mot de passe.</p>

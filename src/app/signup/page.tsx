@@ -250,7 +250,7 @@ export default function SignupPage() {
               />
             </div>
             <div>
-              <h1 className="text-2xl font-bold">Web Academy</h1>
+              <h1 className="text-2xl font-bold">UCAO Academy</h1>
               <p className="text-sm text-white/80">UCAO-UUT</p>
             </div>
           </div>
@@ -276,7 +276,7 @@ export default function SignupPage() {
                 className="object-contain"
               />
             </div>
-            <span className="text-2xl font-bold text-[#03045e]">Web Academy</span>
+            <span className="text-2xl font-bold text-[#03045e]">UCAO Academy</span>
           </div>
 
           {/* Progress Bar */}

@@ -5,7 +5,7 @@ import Image from "next/image";
 import { 
   ChevronLeft, ChevronRight, Users, BookOpen, Award, ArrowRight, 
   MessageSquare, Calendar, 
-  Star, CheckCircle2, Mail, Phone, MapPin, Facebook, Twitter, Linkedin, Instagram,
+  Star, CheckCircle2, Mail, Phone, MapPin, Facebook, Linkedin, Instagram,
   Menu, X, LayoutDashboard
 } from "lucide-react";
 import { auth } from "@/lib/api";
@@ -34,7 +34,7 @@ const heroImages = [
 const stats = [
   { icon: Users, value: "DGI • ISSJ • ISEG", label: "Instituts UCAO-UUT déjà intégrés" },
   { icon: BookOpen, value: "Cours · Emplois du temps · Examens", label: "Modules actuellement disponibles sur la plateforme" },
-  { icon: Award, value: "Étudiants · Formateurs · Admins", label: "Rôles gérés par Web Academy" },
+  { icon: Award, value: "Étudiants · Formateurs · Admins", label: "Rôles gérés par UCAO Academy" },
 ];
 
 const features = [
@@ -62,7 +62,7 @@ const testimonials = [
   {
     name: "Marie Kouassi",
     role: "Étudiante en Informatique",
-    content: "Web Academy a transformé ma façon d'apprendre. Les cours sont bien structurés et les discussions avec les autres étudiants sont très enrichissantes.",
+    content: "UCAO Academy a transformé ma façon d'apprendre. Les cours sont bien structurés et les discussions avec les autres étudiants sont très enrichissantes.",
     avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&q=80",
   },
   {
@@ -163,7 +163,7 @@ export default function Home() {
                   />
                 </div>
                 <div>
-                  <h1 className="text-lg font-bold text-gray-900">Web Academy</h1>
+                  <h1 className="text-lg font-bold text-gray-900">UCAO Academy</h1>
                   <p className="text-xs text-gray-600">UCAO-UUT</p>
                 </div>
               </Link>
@@ -268,7 +268,7 @@ export default function Home() {
                 />
               </div>
               <div className="hidden sm:block">
-                <h1 className="text-lg sm:text-xl font-bold text-gray-900">Web Academy</h1>
+                <h1 className="text-lg sm:text-xl font-bold text-gray-900">UCAO Academy</h1>
                 <p className="text-xs text-gray-600">UCAO-UUT</p>
               </div>
             </Link>
@@ -438,7 +438,7 @@ export default function Home() {
       <section className="py-12 sm:py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10 sm:mb-16">
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-3 sm:mb-4">Pourquoi choisir Web Academy ?</h2>
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-3 sm:mb-4">Pourquoi choisir UCAO Academy ?</h2>
             <p className="text-base sm:text-lg lg:text-xl text-gray-600 max-w-2xl mx-auto px-4">
               La plateforme officielle de l&apos;UCAO-UUT pour suivre vos cours, discussions, emplois du temps et examens.
             </p>
@@ -525,7 +525,7 @@ export default function Home() {
             Prêt à commencer votre parcours à l&apos;UCAO-UUT ?
           </h2>
           <p className="text-base sm:text-lg lg:text-xl text-white/80 mb-6 sm:mb-8 max-w-2xl mx-auto px-4">
-            Rejoignez les étudiants de l&apos;UCAO-UUT qui utilisent Web Academy pour organiser leurs cours, examens et projets.
+            Rejoignez les étudiants de l&apos;UCAO-UUT qui utilisent UCAO Academy pour organiser leurs cours, examens et projets.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center px-4">
             <Link
@@ -571,7 +571,7 @@ export default function Home() {
                   />
                 </div>
                 <div>
-                  <h3 className="font-bold text-sm sm:text-base">Web Academy</h3>
+                  <h3 className="font-bold text-sm sm:text-base">UCAO Academy</h3>
                   <p className="text-xs text-gray-400">UCAO-UUT</p>
                 </div>
               </div>
@@ -579,17 +579,17 @@ export default function Home() {
                 Plateforme de gestion des cours, emplois du temps, discussions et examens pour l&apos;UCAO-UUT.
               </p>
               <div className="flex gap-2 sm:gap-3">
-                <a href="#" className="w-8 h-8 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-gray-700 transition" aria-label="Facebook">
+                <a href="https://www.facebook.com/UCAOTOGO" target="_blank" rel="noopener noreferrer" className="w-8 h-8 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-gray-700 transition" aria-label="Facebook UCAO">
                   <Facebook className="w-4 h-4 text-gray-300" />
                 </a>
-                <a href="#" className="w-8 h-8 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-gray-700 transition" aria-label="Twitter">
-                  <Twitter className="w-4 h-4 text-gray-300" />
+                <a href="https://www.tiktok.com/@ucaouut.togo" target="_blank" rel="noopener noreferrer" className="w-8 h-8 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-gray-700 transition" aria-label="TikTok UCAO">
+                  <svg className="w-4 h-4 text-gray-300" viewBox="0 0 24 24" fill="currentColor" aria-hidden><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88 6.24v-7.1a7.41 7.41 0 0 0 4.77 1.74v-3.4a4.85 4.85 0 0 1-1-.1z"/></svg>
                 </a>
-                <a href="#" className="w-8 h-8 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-gray-700 transition" aria-label="LinkedIn">
-                  <Linkedin className="w-4 h-4 text-gray-300" />
-                </a>
-                <a href="#" className="w-8 h-8 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-gray-700 transition" aria-label="Instagram">
+                <a href="https://www.instagram.com/ucaouut/" target="_blank" rel="noopener noreferrer" className="w-8 h-8 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-gray-700 transition" aria-label="Instagram UCAO">
                   <Instagram className="w-4 h-4 text-gray-300" />
+                </a>
+                <a href="https://www.linkedin.com/company/ucao-uut/" target="_blank" rel="noopener noreferrer" className="w-8 h-8 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-gray-700 transition" aria-label="LinkedIn UCAO">
+                  <Linkedin className="w-4 h-4 text-gray-300" />
                 </a>
               </div>
             </div>
@@ -650,19 +650,19 @@ export default function Home() {
                 </div>
                 <div className="flex items-center gap-2">
                   <Mail className="w-4 h-4 flex-shrink-0" />
-                  <a href="mailto:contact@ucao-uut.tg" className="hover:text-white transition break-all">
-                    contact@ucao-uut.tg
+                  <a href="mailto:scolarite@ucao-uut.tg" className="hover:text-white transition break-all">
+                    scolarite@ucao-uut.tg
                   </a>
                 </div>
                 <div className="flex items-center gap-2">
                   <Phone className="w-4 h-4 flex-shrink-0" />
-                  <span className="text-gray-400">Contact téléphonique à renseigner par l&apos;administration</span>
+                  <a href="tel:+22896803167" className="hover:text-white transition">+228 96 80 31 67</a>
                 </div>
               </div>
             </div>
           </div>
           <div className="border-t border-gray-800 mt-6 sm:mt-8 pt-6 sm:pt-8 text-center text-gray-400 text-xs sm:text-sm px-4">
-            <p>&copy; {new Date().getFullYear()} Web Academy UCAO-UUT. Tous droits réservés.</p>
+            <p>&copy; {new Date().getFullYear()} UCAO Academy UCAO-UUT. Tous droits réservés.</p>
           </div>
         </div>
       </footer>

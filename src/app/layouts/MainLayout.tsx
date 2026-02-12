@@ -106,7 +106,7 @@ export default function MainLayout({ children }: MainLayoutProps) {
               </div>
               {sidebarOpen && (
                 <div>
-                  <h1 className="text-lg font-bold text-white">Web Academy</h1>
+                  <h1 className="text-lg font-bold text-white">UCAO Academy</h1>
                   <p className="text-xs text-blue-300/80 font-medium">UCAO-UUT</p>
                 </div>
               )}

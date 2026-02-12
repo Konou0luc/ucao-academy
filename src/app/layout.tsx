@@ -10,7 +10,7 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
-  title: "Web Academy UCAO-UUT",
+  title: "UCAO Academy UCAO-UUT",
   description: "Plateforme étudiante UCAO-UUT",
 };
 

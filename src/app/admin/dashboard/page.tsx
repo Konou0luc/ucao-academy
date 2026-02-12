@@ -71,7 +71,7 @@ export default function AdminDashboard() {
   }, []);
 
   const subtitle = dashboardContext.isSuperAdmin
-    ? "Vue d'ensemble de la plateforme Web Academy"
+    ? "Vue d'ensemble de la plateforme UCAO Academy"
     : `Vue d'ensemble de votre institut — ${dashboardContext.instituteLabel}`;
 
   if (loading) {
@@ -145,7 +145,7 @@ export default function AdminDashboard() {
             <div>
               <h2 className="text-lg font-semibold text-gray-900">Derniers cours créés</h2>
               <p className="text-xs text-gray-500">
-                Un aperçu rapide des formations récemment ajoutées sur Web Academy.
+                Un aperçu rapide des formations récemment ajoutées sur UCAO Academy.
               </p>
             </div>
             <Link

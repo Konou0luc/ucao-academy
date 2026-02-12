@@ -63,7 +63,7 @@ export default function ForgotPasswordPage() {
                 <Image src="/images/logo.png" alt="Logo UCAO-UUT" fill className="object-contain" />
               </div>
               <div>
-                <h1 className="text-2xl font-bold">Web Academy</h1>
+                <h1 className="text-2xl font-bold">UCAO Academy</h1>
                 <p className="text-sm text-white/80">UCAO-UUT</p>
               </div>
             </div>
@@ -79,7 +79,7 @@ export default function ForgotPasswordPage() {
               <div className="w-10 h-10 relative">
                 <Image src="/images/logo.png" alt="Logo" fill className="object-contain" />
               </div>
-              <span className="text-2xl font-bold text-[#03045e]">Web Academy</span>
+              <span className="text-2xl font-bold text-[#03045e]">UCAO Academy</span>
             </div>
             <h2 className="text-xl font-semibold text-gray-900 mb-4">Vérifiez votre boîte mail</h2>
             <p className="text-gray-600 mb-6">
@@ -122,7 +122,7 @@ export default function ForgotPasswordPage() {
               <Image src="/images/logo.png" alt="Logo UCAO-UUT" fill className="object-contain" />
             </div>
             <div>
-              <h1 className="text-2xl font-bold">Web Academy</h1>
+              <h1 className="text-2xl font-bold">UCAO Academy</h1>
               <p className="text-sm text-white/80">UCAO-UUT</p>
             </div>
           </div>
@@ -138,7 +138,7 @@ export default function ForgotPasswordPage() {
             <div className="w-10 h-10 relative">
               <Image src="/images/logo.png" alt="Logo" fill className="object-contain" />
             </div>
-            <span className="text-2xl font-bold text-[#03045e]">Web Academy</span>
+            <span className="text-2xl font-bold text-[#03045e]">UCAO Academy</span>
           </div>
           <h2 className="text-2xl font-semibold text-gray-900 mb-2">Réinitialiser le mot de passe</h2>
           <p className="text-gray-600 mb-6">Indiquez l&apos;email associé à votre compte.</p>
