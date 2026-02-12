@@ -54,16 +54,16 @@ export default function ActualitesPage() {
     <MainLayout>
       <div className="flex-1 overflow-y-auto bg-gray-50">
         {/* Header */}
-        <div className="bg-white border-b border-gray-200 px-6 py-4">
-          <div>
-            <h1 className="text-2xl font-bold text-gray-900">Actualités de l&apos;Université</h1>
+        <div className="bg-white border-b border-gray-200 px-4 sm:px-6 py-4">
+          <div className="min-w-0">
+            <h1 className="text-xl sm:text-2xl font-bold text-gray-900">Actualités de l&apos;Université</h1>
             <p className="text-sm text-gray-600 mt-1">
               Restez informé des dernières nouvelles et annonces de l&apos;UCAO-UUT
             </p>
           </div>
         </div>
 
-        <div className="p-6">
+        <div className="p-4 sm:p-6">
           {error && (
             <div className="mb-6 p-4 bg-red-50 border border-red-100 rounded-xl text-red-700 text-sm">
               {error}

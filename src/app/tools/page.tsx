@@ -23,11 +23,11 @@ export default function ToolsPage() {
   return (
     <MainLayout>
       <div className="flex-1 overflow-y-auto bg-gray-50">
-        <div className="bg-white border-b border-gray-200 px-6 py-4">
-          <h1 className="text-2xl font-bold text-gray-900">Outils</h1>
+        <div className="bg-white border-b border-gray-200 px-4 sm:px-6 py-4">
+          <h1 className="text-xl sm:text-2xl font-bold text-gray-900">Outils</h1>
           <p className="text-sm text-gray-600 mt-1">Liens utiles pour faciliter vos études</p>
         </div>
-        <div className="p-6">
+        <div className="p-4 sm:p-6">
           {loading ? (
             <div className="flex items-center justify-center py-16">
               <Loader2 className="w-10 h-10 text-[#03045e] animate-spin" />

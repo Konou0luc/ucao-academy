@@ -51,9 +51,12 @@ export default function StudentDashboard() {
 
   useEffect(() => {
     const niveau = typeof window !== "undefined" ? localStorage.getItem("studentLevel") || undefined : undefined;
+    const filiere = typeof window !== "undefined" ? localStorage.getItem("studentFiliere") || undefined : undefined;
+    const courseFilters = { ...(niveau && { niveau }), ...(filiere && { filiere }) };
+    const calendarFilters = { ...(niveau && { niveau }), ...(filiere && { filiere }) };
 
     Promise.all([
-      coursesApi.getAll(niveau ? { niveau } : {}).then((data) => {
+      coursesApi.getAll(courseFilters).then((data) => {
         const list = Array.isArray(data) ? data : [];
         return list.slice(0, 5).map((c: { _id: string; title: string; filiere?: string; niveau?: string }) => ({
           id: String(c._id),
@@ -72,7 +75,7 @@ export default function StudentDashboard() {
           created_at: d.createdAt ?? "",
         }));
       }),
-      evaluationCalendarsApi.getAll(niveau ? { niveau } : {}).then((data) => {
+      evaluationCalendarsApi.getAll(calendarFilters).then((data) => {
         const list = Array.isArray(data) ? data : [];
         const now = new Date();
         return list
@@ -121,19 +124,19 @@ export default function StudentDashboard() {
   return (
     <MainLayout>
       <div className="flex-1 overflow-y-auto bg-gray-50">
-        <div className="bg-white border-b border-gray-200 px-6 py-4">
-          <div className="flex items-center justify-between">
-            <div>
-              <h1 className="text-2xl font-bold text-gray-900">Tableau de bord</h1>
+        <div className="bg-white border-b border-gray-200 px-4 sm:px-6 py-4">
+          <div className="flex items-center justify-between gap-3">
+            <div className="min-w-0">
+              <h1 className="text-xl sm:text-2xl font-bold text-gray-900">Tableau de bord</h1>
               <p className="text-sm text-gray-600 mt-1">Bienvenue sur votre espace étudiant</p>
             </div>
-            <button className="relative p-2 text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded-lg transition" type="button">
+            <button className="relative p-2 text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded-lg transition shrink-0" type="button" aria-label="Notifications">
               <Bell className="w-5 h-5" />
             </button>
           </div>
         </div>
 
-        <div className="p-6 space-y-6">
+        <div className="p-4 sm:p-6 space-y-6">
           {error && (
             <div className="p-4 bg-amber-50 border border-amber-200 rounded-xl text-amber-800 text-sm">
               {error}

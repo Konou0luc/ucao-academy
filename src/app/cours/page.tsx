@@ -4,7 +4,7 @@ import { useRouter } from "next/navigation";
 import { toast } from "sonner";
 import MainLayout from "../layouts/MainLayout";
 import { Folder, FileText, ChevronRight, ChevronDown, Search, BookOpen, GraduationCap } from "lucide-react";
-import { courses as coursesApi } from "@/lib/api";
+import { courses as coursesApi, auth } from "@/lib/api";
 
 // Construire l'arbre Filière > Niveau > Cours à partir de la liste plate API
 function buildCourseTree(courses: { _id: string; title: string; description?: string; filiere?: string | null; niveau?: string | null; institution?: string }[]): FileItem[] {
@@ -64,6 +64,7 @@ export default function CoursPage() {
   const [searchInput, setSearchInput] = useState("");
   const [search, setSearch] = useState("");
   const [studentLevel, setStudentLevel] = useState<string>("licence1");
+  const [studentFiliere, setStudentFiliere] = useState<string | null>(null);
   const [courseTree, setCourseTree] = useState<FileItem[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -71,6 +72,18 @@ export default function CoursPage() {
   useEffect(() => {
     const userLevel = localStorage.getItem("studentLevel") || "licence1";
     setStudentLevel(userLevel);
+    const storedFiliere = localStorage.getItem("studentFiliere");
+    if (storedFiliere) setStudentFiliere(storedFiliere);
+    auth.getUser().then((u: { filiere?: string; niveau?: string }) => {
+      if (u?.filiere) {
+        setStudentFiliere(u.filiere);
+        localStorage.setItem("studentFiliere", u.filiere);
+      }
+      if (u?.niveau) {
+        setStudentLevel(u.niveau);
+        localStorage.setItem("studentLevel", u.niveau);
+      }
+    }).catch(() => {});
   }, []);
 
   useEffect(() => {
@@ -82,12 +95,19 @@ export default function CoursPage() {
     let cancelled = false;
     setLoading(true);
     setError(null);
+    const filters: { niveau: string; filiere?: string; search?: string } = { niveau: studentLevel };
+    if (studentFiliere) filters.filiere = studentFiliere;
+    if (search?.trim()) filters.search = search.trim();
     coursesApi
-      .getAll({ niveau: studentLevel, search: search || undefined })
+      .getAll(filters)
       .then((data) => {
         if (cancelled) return;
         const list = Array.isArray(data) ? data : [];
-        setCourseTree(buildCourseTree(list));
+        let tree = buildCourseTree(list);
+        if (studentFiliere) {
+          tree = tree.filter((item) => item.name === studentFiliere);
+        }
+        setCourseTree(tree);
       })
       .catch(() => {
         if (!cancelled) {
@@ -100,7 +120,7 @@ export default function CoursPage() {
         if (!cancelled) setLoading(false);
       });
     return () => { cancelled = true; };
-  }, [studentLevel, search]);
+  }, [studentLevel, studentFiliere, search]);
 
   const toggleFolder = (folderId: string) => {
     const newExpanded = new Set(expandedFolders);
@@ -245,17 +265,17 @@ export default function CoursPage() {
     <MainLayout>
       <div className="flex-1 overflow-y-auto bg-gray-50">
         {/* Header */}
-        <div className="bg-white border-b border-gray-200 px-6 py-4">
+        <div className="bg-white border-b border-gray-200 px-4 sm:px-6 py-4">
           <div className="mb-4">
-            <div className="flex items-center justify-between">
-              <div>
-                <h1 className="text-2xl font-bold text-gray-900">Cours</h1>
+            <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+              <div className="min-w-0">
+                <h1 className="text-xl sm:text-2xl font-bold text-gray-900">Cours</h1>
                 <p className="text-sm text-gray-600 mt-1">
                   Parcourez les cours organisés par filière et niveau d&apos;étude
                 </p>
               </div>
-              <div className="flex items-center gap-2 px-3 py-2 bg-[#03045e]/10 rounded-lg border border-[#03045e]/20">
-                <GraduationCap className="w-4 h-4 text-[#03045e]" />
+              <div className="flex items-center gap-2 px-3 py-2 bg-[#03045e]/10 rounded-lg border border-[#03045e]/20 w-fit">
+                <GraduationCap className="w-4 h-4 text-[#03045e] shrink-0" />
                 <span className="text-sm font-medium text-[#03045e] capitalize">
                   {studentLevel}
                 </span>
@@ -277,7 +297,7 @@ export default function CoursPage() {
 
         {/* File Explorer */}
         <div className="flex-1 overflow-auto">
-          <div className="px-6 py-6">
+          <div className="px-4 sm:px-6 py-4 sm:py-6">
             {/* Breadcrumb */}
             <div className="mb-4">
               <div className="flex items-center gap-2 text-sm text-gray-600">

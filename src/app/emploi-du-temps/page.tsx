@@ -151,37 +151,39 @@ export default function EmploiDuTempsPage() {
     <MainLayout>
       <div className="flex-1 flex flex-col overflow-hidden bg-white">
         {/* Header */}
-        <header className="bg-white border-b border-gray-200 px-8 py-6">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-4">
-              <h1 className="text-2xl font-bold text-gray-900 flex items-center gap-3">
-                <Calendar className="w-6 h-6 text-gray-700" />
+        <header className="bg-white border-b border-gray-200 px-4 sm:px-6 lg:px-8 py-4 sm:py-6">
+          <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+            <div className="min-w-0">
+              <h1 className="text-xl sm:text-2xl font-bold text-gray-900 flex items-center gap-2 sm:gap-3">
+                <Calendar className="w-5 h-5 sm:w-6 sm:h-6 text-gray-700 shrink-0" />
                 Planning
               </h1>
-              <div className="text-gray-500 text-sm font-medium">
+              <div className="text-gray-500 text-sm font-medium mt-1">
                 {currentWeek.toLocaleDateString("fr-FR", { month: "long", year: "numeric" })}
               </div>
             </div>
-            <div className="flex items-center gap-3">
-              <div className="w-8 h-8 bg-pink-100 rounded-full flex items-center justify-center cursor-pointer hover:bg-pink-200 transition">
+            <div className="flex items-center gap-2 sm:gap-3 shrink-0">
+              <div className="w-8 h-8 bg-pink-100 rounded-full flex items-center justify-center cursor-pointer hover:bg-pink-200 transition shrink-0" title="Informations">
                 <Info className="w-4 h-4 text-pink-600" />
               </div>
-              <div className="flex items-center gap-1 border border-gray-300 rounded-md overflow-hidden">
+              <div className="flex items-center gap-0 sm:gap-1 border border-gray-300 rounded-md overflow-hidden">
                 <button
                   onClick={() => navigateWeek("prev")}
-                  className="px-3 py-2 hover:bg-gray-50 transition text-gray-600"
+                  className="p-2 sm:px-3 sm:py-2 hover:bg-gray-50 transition text-gray-600"
+                  aria-label="Semaine précédente"
                 >
                   <ChevronLeft className="w-4 h-4" />
                 </button>
                 <button
                   onClick={() => navigateWeek("today")}
-                  className="px-4 py-2 hover:bg-gray-50 transition font-medium text-gray-700 border-x border-gray-300"
+                  className="px-2 sm:px-4 py-2 hover:bg-gray-50 transition font-medium text-gray-700 border-x border-gray-300 text-sm sm:text-base"
                 >
                   Aujourd&apos;hui
                 </button>
                 <button
                   onClick={() => navigateWeek("next")}
-                  className="px-3 py-2 hover:bg-gray-50 transition text-gray-600"
+                  className="p-2 sm:px-3 sm:py-2 hover:bg-gray-50 transition text-gray-600"
+                  aria-label="Semaine suivante"
                 >
                   <ChevronRight className="w-4 h-4" />
                 </button>
@@ -191,7 +193,7 @@ export default function EmploiDuTempsPage() {
         </header>
 
         {error && (
-          <div className="mx-8 mb-4 p-4 bg-red-50 border border-red-100 rounded-xl text-red-700 text-sm">
+          <div className="mx-4 sm:mx-6 lg:mx-8 mb-4 p-4 bg-red-50 border border-red-100 rounded-xl text-red-700 text-sm">
             {error}
           </div>
         )}
@@ -279,15 +281,15 @@ export default function EmploiDuTempsPage() {
                             height: position.height,
                             minHeight: "32px",
                           }}
-                          title={`${event.course_title} — ${event.start_time}–${event.end_time} — ${event.room || ""}`}
+                          title={`${event.course_title} — ${event.start_time}–${event.end_time} — ${event.room || ""} — ${event.instructor}`}
                         >
-                          <div className="font-bold mb-0.5 leading-tight truncate">
-                            {event.course_title?.slice(0, 22) || event.class_code}
+                          <div className="font-bold mb-0.5 leading-tight line-clamp-2 break-words">
+                            {event.course_title || event.class_code}
                           </div>
                           <div className="text-[10px] opacity-95 leading-tight">
                             {event.start_time} – {event.end_time}
                           </div>
-                          <div className="text-[10px] opacity-95 leading-tight truncate">{event.instructor}</div>
+                          <div className="text-[10px] opacity-95 leading-tight truncate" title={event.instructor}>{event.instructor}</div>
                         </div>
                       );
                     })}

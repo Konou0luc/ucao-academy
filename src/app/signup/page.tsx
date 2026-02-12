@@ -200,6 +200,9 @@ export default function SignupPage() {
         if (data.user.niveau) {
           localStorage.setItem("studentLevel", data.user.niveau);
         }
+        if (data.user.filiere) {
+          localStorage.setItem("studentFiliere", data.user.filiere);
+        }
         toast.success("Inscription réussie. Bienvenue !");
         const role = (data.user as { role?: string }).role;
         const destination = role === "admin" ? "/admin/dashboard" : role === "formateur" ? "/formateur" : "/dashboard";
@@ -560,25 +563,24 @@ export default function SignupPage() {
               </div>
             )}
 
-            {/* Navigation Buttons */}
-            <div className="flex items-center justify-between pt-4">
+            {/* Navigation Buttons — responsive: empilés sur mobile pour éviter chevauchement */}
+            <div className="flex flex-col-reverse sm:flex-row sm:items-center sm:justify-between gap-3 pt-4">
               {currentStep > 1 ? (
                 <button
                   type="button"
                   onClick={handlePrevious}
-                  className="px-6 py-3 border border-gray-300 text-gray-700 rounded-lg font-medium hover:bg-gray-50 transition flex items-center gap-2"
+                  className="w-full sm:w-auto order-2 sm:order-1 px-6 py-3 border border-gray-300 text-gray-700 rounded-lg font-medium hover:bg-gray-50 transition flex items-center justify-center gap-2"
                 >
                   <ChevronLeft className="w-5 h-5" />
                   Précédent
                 </button>
               ) : (
-                <div />
+                <div className="hidden sm:block" />
               )}
-              
               {currentStep < 3 ? (
                 <button
                   type="submit"
-                  className="px-6 py-3 bg-[#03045e] text-white rounded-lg font-semibold hover:bg-[#023e8a] transition flex items-center gap-2 ml-auto"
+                  className="w-full sm:w-auto order-1 sm:order-2 px-6 py-3 bg-[#03045e] text-white rounded-lg font-semibold hover:bg-[#023e8a] transition flex items-center justify-center gap-2 sm:ml-auto"
                 >
                   Suivant
                   <ChevronRight className="w-5 h-5" />
@@ -587,7 +589,7 @@ export default function SignupPage() {
                 <button
                   type="submit"
                   disabled={loading}
-                  className="px-6 py-3 bg-[#03045e] text-white rounded-lg font-semibold hover:bg-[#023e8a] transition disabled:opacity-60 disabled:cursor-not-allowed flex items-center gap-2 ml-auto"
+                  className="w-full sm:w-auto order-1 sm:order-2 px-6 py-3 bg-[#03045e] text-white rounded-lg font-semibold hover:bg-[#023e8a] transition disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center gap-2 sm:ml-auto"
                 >
                   {loading ? "Création..." : "Créer mon compte"}
                 </button>

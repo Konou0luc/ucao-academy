@@ -200,12 +200,13 @@ export default function MainLayout({ children }: MainLayoutProps) {
         </nav>
       </aside>
 
-      {/* Main Content */}
-      <main className="flex-1 flex flex-col overflow-hidden lg:ml-0">
+      {/* Main Content — padding mobile pour que le titre ne soit pas caché par le bouton menu */}
+      <main className="flex-1 flex flex-col overflow-hidden lg:ml-0 pt-16 pl-14 pr-4 pb-4 lg:pt-6 lg:pl-8 lg:pr-8 lg:pb-6">
         {/* Mobile Menu Button */}
         <button
           onClick={() => setMobileMenuOpen(true)}
           className="lg:hidden fixed top-4 left-4 z-30 bg-[#1e3a5f] text-white p-2 rounded-lg shadow-lg"
+          aria-label="Ouvrir le menu"
         >
           <Menu className="w-6 h-6" />
         </button>

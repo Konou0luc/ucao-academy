@@ -49,6 +49,9 @@ export default function LoginPage() {
         if (data.user.niveau) {
           localStorage.setItem("studentLevel", data.user.niveau);
         }
+        if (data.user.filiere) {
+          localStorage.setItem("studentFiliere", data.user.filiere);
+        }
         toast.success("Connexion réussie");
         const role = data.user.role;
         const redirect = role === "admin" ? "/admin/dashboard" : role === "formateur" ? "/formateur" : "/dashboard";

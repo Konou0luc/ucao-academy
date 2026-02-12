@@ -5,7 +5,7 @@ import { toast } from "sonner";
 import MainLayout from "../layouts/MainLayout";
 import { MessageSquare, Search, Filter, Pin, User, Plus, Clock, BookOpen, TrendingUp } from "lucide-react";
 import Link from "next/link";
-import { discussions as discussionsApi, courses as coursesApi } from "@/lib/api";
+import { discussions as discussionsApi, courses as coursesApi, auth } from "@/lib/api";
 
 const DEBOUNCE_MS = 400;
 
@@ -94,7 +94,11 @@ export default function DiscussionsPage() {
   }, [selectedCourse, search, load]);
 
   useEffect(() => {
-    coursesApi.getAll().then((data) => {
+    auth.getUser().then((u: { filiere?: string }) => {
+      const filters: { filiere?: string } = {};
+      if (u?.filiere) filters.filiere = u.filiere;
+      return coursesApi.getAll(filters);
+    }).then((data) => {
       const list = Array.isArray(data) ? data : [];
       setCourseOptions(list.map((c: { _id: string; title: string }) => ({ id: String(c._id), title: c.title })));
     }).catch(() => {});
@@ -119,15 +123,15 @@ export default function DiscussionsPage() {
     <MainLayout>
       <div className="flex-1 overflow-y-auto bg-gray-50">
         {/* Header */}
-        <div className="bg-white border-b border-gray-200 px-6 py-4">
-          <div className="flex items-center justify-between">
-            <div>
-              <h1 className="text-2xl font-bold text-gray-900">Forum de Discussion</h1>
+        <div className="bg-white border-b border-gray-200 px-4 sm:px-6 py-4">
+          <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+            <div className="min-w-0">
+              <h1 className="text-xl sm:text-2xl font-bold text-gray-900 truncate">Forum de Discussion</h1>
               <p className="text-sm text-gray-600 mt-1">Échangez avec vos camarades et formateurs</p>
             </div>
             <Link
               href="/discussions/nouveau"
-              className="px-4 py-2 bg-[#d90429] text-white rounded-lg font-semibold hover:bg-[#b0031f] transition flex items-center gap-2 shadow-sm hover:shadow-md"
+              className="w-full sm:w-auto px-4 py-2.5 bg-[#d90429] text-white rounded-lg font-semibold hover:bg-[#b0031f] transition flex items-center justify-center gap-2 shadow-sm hover:shadow-md shrink-0"
             >
               <Plus className="w-4 h-4" />
               Nouvelle discussion
@@ -263,16 +267,16 @@ export default function DiscussionsPage() {
                         <p className="text-gray-600 line-clamp-2 mb-3">
                           {discussion.content}
                         </p>
-                        <div className="flex items-center gap-4 text-sm text-gray-500 pt-3 border-t border-yellow-200">
-                          <span className="flex items-center gap-1">
+                        <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-gray-500 pt-3 border-t border-yellow-200 min-w-0">
+                          <span className="flex items-center gap-1 shrink-0">
                             <User className="w-4 h-4" />
                             {discussion.user.name}
                           </span>
-                          <span className="flex items-center gap-1">
+                          <span className="flex items-center gap-1 shrink-0">
                             <MessageSquare className="w-4 h-4" />
                             {discussion.replies_count} réponse{discussion.replies_count > 1 ? "s" : ""}
                           </span>
-                          <span className="flex items-center gap-1">
+                          <span className="flex items-center gap-1 shrink-0">
                             <Clock className="w-4 h-4" />
                             {formatDate(discussion.created_at)}
                           </span>
@@ -314,16 +318,16 @@ export default function DiscussionsPage() {
                         <p className="text-gray-600 line-clamp-2 mb-3">
                           {discussion.content}
                         </p>
-                        <div className="flex items-center gap-4 text-sm text-gray-500 pt-3 border-t border-gray-100">
-                          <span className="flex items-center gap-1">
+                        <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-gray-500 pt-3 border-t border-gray-100 min-w-0">
+                          <span className="flex items-center gap-1 shrink-0">
                             <User className="w-4 h-4" />
                             {discussion.user.name}
                           </span>
-                          <span className="flex items-center gap-1">
+                          <span className="flex items-center gap-1 shrink-0">
                             <MessageSquare className="w-4 h-4" />
                             {discussion.replies_count} réponse{discussion.replies_count > 1 ? "s" : ""}
                           </span>
-                          <span className="flex items-center gap-1">
+                          <span className="flex items-center gap-1 shrink-0">
                             <Clock className="w-4 h-4" />
                             {formatDate(discussion.created_at)}
                           </span>
