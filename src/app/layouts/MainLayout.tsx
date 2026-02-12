@@ -101,11 +101,19 @@ export default function MainLayout({ children }: MainLayoutProps) {
       <header className="flex h-14 shrink-0 items-center justify-between border-b border-gray-200 bg-white px-4 dark:border-gray-700 dark:bg-gray-800">
         <button
           type="button"
-          onClick={() => (window.innerWidth >= 1024 ? setSidebarOpen((o) => !o) : setMobileMenuOpen(true))}
+          onClick={() => {
+            if (window.innerWidth >= 1024) {
+              // Desktop : on plie/déplie simplement la sidebar
+              setSidebarOpen((o) => !o);
+            } else {
+              // Mobile : on ouvre/ferme le panneau latéral
+              setMobileMenuOpen((open) => !open);
+            }
+          }}
           className="flex h-10 w-10 items-center justify-center rounded-lg text-gray-600 transition hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700"
           aria-label="Menu"
         >
-          <Menu className="h-6 w-6" />
+          {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
         </button>
         <div className="flex items-center gap-1">
           <button
@@ -165,14 +173,6 @@ export default function MainLayout({ children }: MainLayoutProps) {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                 </svg>
               )}
-            </button>
-            <button
-              type="button"
-              onClick={() => setMobileMenuOpen(false)}
-              className="text-blue-300/80 transition hover:text-white lg:hidden"
-              aria-label="Fermer le menu"
-            >
-              <X className="h-5 w-5" />
             </button>
           </div>
 
