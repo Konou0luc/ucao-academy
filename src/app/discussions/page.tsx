@@ -121,7 +121,7 @@ export default function DiscussionsPage() {
 
   return (
     <MainLayout>
-      <div className="flex-1 overflow-y-auto bg-gray-50">
+      <div className="flex-1 overflow-y-auto bg-gray-50 dark:bg-transparent">
         {/* Header */}
         <div className="border-b border-gray-200 bg-white px-4 py-4 dark:border-gray-700 dark:bg-gray-800 sm:px-6">
           <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
@@ -146,7 +146,7 @@ export default function DiscussionsPage() {
             </div>
           )}
           {loading ? (
-            <div className="py-12 text-center text-gray-600">Chargement des discussions...</div>
+            <div className="py-12 text-center text-gray-600 dark:text-white">Chargement des discussions...</div>
           ) : (
           <>
           {/* Statistiques rapides */}
@@ -157,8 +157,8 @@ export default function DiscussionsPage() {
                   <p className="mb-1 text-sm text-gray-600 dark:text-gray-400">Total discussions</p>
                   <p className="text-2xl font-bold text-gray-900 dark:text-white">{discussions.length}</p>
                 </div>
-                <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
-                  <MessageSquare className="w-6 h-6 text-blue-600" />
+                <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-blue-100 dark:bg-blue-900/40">
+                  <MessageSquare className="h-6 w-6 text-blue-600 dark:text-white" />
                 </div>
               </div>
             </div>
@@ -191,7 +191,7 @@ export default function DiscussionsPage() {
           {/* Filtres */}
           <div className="mb-6 rounded-xl border border-gray-100 bg-white p-6 shadow-sm dark:border-gray-700 dark:bg-gray-800">
             <div className="mb-4 flex items-center gap-2">
-              <Filter className="h-5 w-5 text-gray-600 dark:text-gray-400" />
+              <Filter className="h-5 w-5 text-gray-600 dark:text-white" />
               <h2 className="text-lg font-semibold text-gray-900 dark:text-white">Filtres</h2>
             </div>
             <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
@@ -200,7 +200,7 @@ export default function DiscussionsPage() {
                   Rechercher
                 </label>
                 <div className="relative">
-                  <Search className="absolute left-3 top-1/2 h-5 w-5 -translate-y-1/2 transform text-gray-400" />
+                  <Search className="absolute left-3 top-1/2 h-5 w-5 -translate-y-1/2 transform text-gray-400 dark:text-white" />
                   <input
                     type="text"
                     placeholder="Rechercher dans les discussions..."
@@ -259,15 +259,15 @@ export default function DiscussionsPage() {
                             </span>
                           )}
                         </div>
-                        <h3 className="text-lg font-semibold text-gray-900 mb-2 group-hover:text-[#03045e] transition">
+                        <h3 className="mb-2 text-lg font-semibold text-gray-900 transition group-hover:text-[#03045e] dark:text-white dark:group-hover:text-white">
                           {discussion.title}
                         </h3>
-                        <p className="text-gray-600 line-clamp-2 mb-3">
+                        <p className="mb-3 line-clamp-2 text-gray-600 dark:text-gray-300">
                           {discussion.content}
                         </p>
-                        <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-gray-500 pt-3 border-t border-yellow-200 min-w-0">
-                          <span className="flex items-center gap-1 shrink-0">
-                            <User className="w-4 h-4" />
+                        <div className="flex min-w-0 flex-wrap items-center gap-x-4 gap-y-1 border-t border-yellow-200 pt-3 text-sm text-gray-500 dark:border-gray-600 dark:text-gray-400">
+                          <span className="flex shrink-0 items-center gap-1">
+                            <User className="h-4 w-4" />
                             {discussion.user.name}
                           </span>
                           <span className="flex items-center gap-1 shrink-0">
@@ -306,17 +306,17 @@ export default function DiscussionsPage() {
                       </div>
                       <div className="flex-1 min-w-0">
                         {discussion.course_title && (
-                          <span className="inline-block px-2 py-1 bg-blue-100 text-blue-700 text-xs rounded-md mb-2 font-medium">
+                          <span className="mb-2 inline-block rounded-md bg-blue-100 px-2 py-1 text-xs font-medium text-blue-700 dark:bg-blue-900/50 dark:text-blue-200">
                             {discussion.course_title}
                           </span>
                         )}
-                        <h3 className="text-lg font-semibold text-gray-900 mb-2 group-hover:text-[#03045e] transition">
+                        <h3 className="mb-2 text-lg font-semibold text-gray-900 transition group-hover:text-[#03045e] dark:text-white dark:group-hover:text-white">
                           {discussion.title}
                         </h3>
-                        <p className="text-gray-600 line-clamp-2 mb-3">
+                        <p className="mb-3 line-clamp-2 text-gray-600 dark:text-gray-300">
                           {discussion.content}
                         </p>
-                        <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-gray-500 pt-3 border-t border-gray-100 min-w-0">
+                        <div className="flex min-w-0 flex-wrap items-center gap-x-4 gap-y-1 border-t border-gray-100 pt-3 text-sm text-gray-500 dark:border-gray-600 dark:text-gray-400">
                           <span className="flex items-center gap-1 shrink-0">
                             <User className="w-4 h-4" />
                             {discussion.user.name}

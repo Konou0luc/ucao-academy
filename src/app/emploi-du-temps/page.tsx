@@ -149,13 +149,13 @@ export default function EmploiDuTempsPage() {
 
   return (
     <MainLayout>
-      <div className="flex-1 flex flex-col overflow-hidden bg-white">
+      <div className="flex flex-1 flex-col overflow-hidden bg-white dark:bg-transparent">
         {/* Header */}
         <header className="border-b border-gray-200 bg-white px-4 py-4 dark:border-gray-700 dark:bg-gray-800 sm:px-6 sm:py-6 lg:px-8">
           <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
             <div className="min-w-0">
               <h1 className="flex items-center gap-2 text-xl font-bold text-gray-900 dark:text-white sm:gap-3 sm:text-2xl">
-                <Calendar className="h-5 w-5 shrink-0 text-gray-700 dark:text-gray-300 sm:h-6 sm:w-6" />
+                <Calendar className="h-5 w-5 shrink-0 text-gray-700 dark:text-white sm:h-6 sm:w-6" />
                 Planning
               </h1>
               <div className="mt-1 text-sm font-medium text-gray-500 dark:text-gray-400">
@@ -166,26 +166,26 @@ export default function EmploiDuTempsPage() {
               <div className="w-8 h-8 bg-pink-100 rounded-full flex items-center justify-center cursor-pointer hover:bg-pink-200 transition shrink-0" title="Informations">
                 <Info className="w-4 h-4 text-pink-600" />
               </div>
-              <div className="flex items-center gap-0 sm:gap-1 border border-gray-300 rounded-md overflow-hidden">
+              <div className="flex items-center gap-0 overflow-hidden rounded-md border border-gray-300 dark:border-gray-600 sm:gap-1">
                 <button
                   onClick={() => navigateWeek("prev")}
-                  className="p-2 sm:px-3 sm:py-2 hover:bg-gray-50 transition text-gray-600"
+                  className="p-2 text-gray-600 transition hover:bg-gray-50 dark:text-white dark:hover:bg-gray-700 sm:px-3 sm:py-2"
                   aria-label="Semaine précédente"
                 >
-                  <ChevronLeft className="w-4 h-4" />
+                  <ChevronLeft className="h-4 w-4" />
                 </button>
                 <button
                   onClick={() => navigateWeek("today")}
-                  className="px-2 sm:px-4 py-2 hover:bg-gray-50 transition font-medium text-gray-700 border-x border-gray-300 text-sm sm:text-base"
+                  className="border-x border-gray-300 px-2 py-2 text-sm font-medium text-gray-700 transition hover:bg-gray-50 dark:border-gray-600 dark:text-white dark:hover:bg-gray-700 sm:px-4 sm:text-base"
                 >
                   Aujourd&apos;hui
                 </button>
                 <button
                   onClick={() => navigateWeek("next")}
-                  className="p-2 sm:px-3 sm:py-2 hover:bg-gray-50 transition text-gray-600"
+                  className="p-2 text-gray-600 transition hover:bg-gray-50 dark:text-white dark:hover:bg-gray-700 sm:px-3 sm:py-2"
                   aria-label="Semaine suivante"
                 >
-                  <ChevronRight className="w-4 h-4" />
+                  <ChevronRight className="h-4 w-4" />
                 </button>
               </div>
             </div>
@@ -193,19 +193,19 @@ export default function EmploiDuTempsPage() {
         </header>
 
         {error && (
-          <div className="mx-4 sm:mx-6 lg:mx-8 mb-4 p-4 bg-red-50 border border-red-100 rounded-xl text-red-700 text-sm">
+          <div className="mx-4 mb-4 rounded-xl border border-red-100 bg-red-50 p-4 text-sm text-red-700 dark:border-red-900/50 dark:bg-red-900/20 sm:mx-6 lg:mx-8">
             {error}
           </div>
         )}
-        {loading ? (
-          <div className="flex-1 flex items-center justify-center text-gray-600">
-            Chargement de l&apos;emploi du temps...
-          </div>
+{loading ? (
+            <div className="flex flex-1 items-center justify-center text-gray-600 dark:text-white">
+              Chargement de l&apos;emploi du temps...
+            </div>
         ) : (
           <>
-            {/* Calendar Grid */}
+            {/* Calendar Grid - min-width pour que les colonnes jour restent larges sur mobile */}
             <div className="flex-1 overflow-auto">
-          <div className="min-w-full">
+          <div className="min-w-[900px]">
             {/* Days Header */}
             <div className="sticky top-0 z-10 grid grid-cols-7 border-b-2 border-gray-300 bg-gray-50 dark:border-gray-600 dark:bg-gray-800">
               <div className="border-r border-gray-300 p-3 dark:border-gray-600">
@@ -273,23 +273,23 @@ export default function EmploiDuTempsPage() {
                       return (
                         <div
                           key={event.id}
-                          className={`absolute left-0.5 right-0.5 rounded-sm border-l-4 ${getEventColor(
+                          className={`absolute left-0 right-0 rounded-sm border-l-4 ${getEventColor(
                             event.type
-                          )} text-white p-1.5 text-xs shadow-md cursor-pointer hover:shadow-lg transition-shadow overflow-hidden`}
+                          )} overflow-hidden px-1.5 py-1.5 text-xs text-white shadow-md transition-shadow hover:shadow-lg cursor-pointer min-w-0`}
                           style={{
                             top: position.top,
                             height: position.height,
-                            minHeight: "32px",
+                            minHeight: "36px",
                           }}
                           title={`${event.course_title} — ${event.start_time}–${event.end_time} — ${event.room || ""} — ${event.instructor}`}
                         >
-                          <div className="font-bold mb-0.5 leading-tight line-clamp-2 break-words">
+                          <div className="mb-0.5 line-clamp-2 break-words font-bold leading-tight">
                             {event.course_title || event.class_code}
                           </div>
-                          <div className="text-[10px] opacity-95 leading-tight">
+                          <div className="text-[10px] leading-tight opacity-95">
                             {event.start_time} – {event.end_time}
                           </div>
-                          <div className="text-[10px] opacity-95 leading-tight truncate" title={event.instructor}>{event.instructor}</div>
+                          <div className="truncate text-[10px] leading-tight opacity-95" title={event.instructor}>{event.instructor}</div>
                         </div>
                       );
                     })}

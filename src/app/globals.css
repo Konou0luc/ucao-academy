@@ -62,6 +62,11 @@ body {
   animation: loading-spin 0.9s linear infinite;
 }
 
+.dark .loading-screen-ring {
+  border-color: #374151;
+  border-top-color: #93c5fd;
+}
+
 .loading-screen-logo {
   animation: loading-pulse 1.5s ease-in-out infinite;
 }

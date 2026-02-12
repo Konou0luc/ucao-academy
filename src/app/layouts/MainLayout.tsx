@@ -102,7 +102,7 @@ export default function MainLayout({ children }: MainLayoutProps) {
         <button
           type="button"
           onClick={() => setMobileMenuOpen((open) => !open)}
-          className="flex h-10 w-10 items-center justify-center rounded-lg text-gray-600 transition hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700"
+          className="flex h-10 w-10 items-center justify-center rounded-lg text-gray-600 transition hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
           aria-label="Menu"
         >
           {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
@@ -111,7 +111,7 @@ export default function MainLayout({ children }: MainLayoutProps) {
           <button
             type="button"
             onClick={toggleTheme}
-            className="flex h-10 w-10 items-center justify-center rounded-lg text-gray-600 transition hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700"
+            className="flex h-10 w-10 items-center justify-center rounded-lg text-gray-600 transition hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
             aria-label={darkMode ? "Mode clair" : "Mode sombre"}
             title={darkMode ? "Mode clair" : "Mode sombre"}
           >

@@ -150,8 +150,8 @@ export default function StudentDashboard() {
                   <p className="mb-1 text-sm text-gray-600 dark:text-gray-400">Mes Cours</p>
                   <p className="text-3xl font-bold text-gray-900 dark:text-white">{recentCourses.length}</p>
                 </div>
-                <div className="w-12 h-12 bg-[#03045e]/10 rounded-lg flex items-center justify-center">
-                  <BookOpen className="w-6 h-6 text-[#03045e]" />
+                <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-[#03045e]/10 dark:bg-gray-700">
+                  <BookOpen className="h-6 w-6 text-[#03045e] dark:text-white" />
                 </div>
               </div>
             </div>
@@ -161,8 +161,8 @@ export default function StudentDashboard() {
                   <p className="mb-1 text-sm text-gray-600 dark:text-gray-400">Discussions</p>
                   <p className="text-3xl font-bold text-gray-900 dark:text-white">{recentDiscussions.length}</p>
                 </div>
-                <div className="w-12 h-12 bg-blue-500/10 rounded-lg flex items-center justify-center">
-                  <MessageSquare className="w-6 h-6 text-blue-500" />
+                <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-blue-500/10 dark:bg-blue-900/40">
+                  <MessageSquare className="h-6 w-6 text-blue-500 dark:text-white" />
                 </div>
               </div>
             </div>
@@ -196,9 +196,9 @@ export default function StudentDashboard() {
                 <div className="border-b border-gray-100 p-6 dark:border-gray-700">
                   <div className="flex items-center justify-between">
                     <h2 className="text-lg font-semibold text-gray-900 dark:text-white">Mes Cours</h2>
-                    <Link href="/cours" className="text-sm text-[#03045e] hover:text-[#023e8a] font-medium flex items-center gap-1">
+                    <Link href="/cours" className="flex items-center gap-1 text-sm font-medium text-[#03045e] hover:text-[#023e8a] dark:text-white dark:hover:text-gray-200">
                       Voir tout
-                      <ChevronRight className="w-4 h-4" />
+                      <ChevronRight className="h-4 w-4" />
                     </Link>
                   </div>
                 </div>
@@ -223,7 +223,7 @@ export default function StudentDashboard() {
                               <span>{formatNiveau(course.niveau)}</span>
                             </div>
                           </div>
-                          <ChevronRight className="w-5 h-5 text-gray-400 group-hover:text-[#03045e] transition" />
+                          <ChevronRight className="h-5 w-5 text-gray-400 transition group-hover:text-[#03045e] dark:group-hover:text-white" />
                         </div>
                       </Link>
                     ))
@@ -235,7 +235,7 @@ export default function StudentDashboard() {
                 <div className="border-b border-gray-100 p-6 dark:border-gray-700">
                   <div className="flex items-center justify-between">
                     <h2 className="text-lg font-semibold text-gray-900 dark:text-white">Discussions récentes</h2>
-                    <Link href="/discussions" className="flex items-center gap-1 text-sm font-medium text-[#03045e] hover:text-[#023e8a]">
+                    <Link href="/discussions" className="flex items-center gap-1 text-sm font-medium text-[#03045e] hover:text-[#023e8a] dark:text-white dark:hover:text-gray-200">
                       Voir tout
                       <ChevronRight className="h-4 w-4" />
                     </Link>

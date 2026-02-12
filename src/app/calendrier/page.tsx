@@ -113,7 +113,7 @@ export default function CalendrierPage() {
 
   return (
     <MainLayout>
-      <div className="flex-1 overflow-y-auto bg-gray-50">
+      <div className="flex-1 overflow-y-auto bg-gray-50 dark:bg-transparent">
         {/* Header */}
         <div className="border-b border-gray-200 bg-white dark:border-gray-700 dark:bg-gray-800 px-6 py-4">
           <div>
@@ -126,14 +126,14 @@ export default function CalendrierPage() {
 
         <div className="p-6">
           {error && (
-            <div className="mb-6 p-4 bg-red-50 border border-red-100 rounded-xl text-red-700 text-sm">
+            <div className="mb-6 rounded-xl border border-red-100 bg-red-50 p-4 text-sm text-red-700 dark:border-red-900/50 dark:bg-red-900/20">
               {error}
             </div>
           )}
           {/* Filtres */}
           <div className="mb-6 rounded-xl border border-gray-100 bg-white p-6 shadow-sm dark:border-gray-700 dark:bg-gray-800">
             <div className="mb-4 flex items-center gap-2">
-              <Filter className="h-5 w-5 text-gray-600 dark:text-gray-400" />
+              <Filter className="h-5 w-5 text-gray-600 dark:text-white" />
               <h2 className="text-lg font-semibold text-gray-900 dark:text-white">Filtres</h2>
             </div>
             <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
@@ -190,13 +190,13 @@ export default function CalendrierPage() {
 
           {/* Calendrier */}
           {loading ? (
-            <div className="py-12 text-center text-gray-600">Chargement du calendrier...</div>
+            <div className="py-12 text-center text-gray-600 dark:text-white">Chargement du calendrier...</div>
           ) : sortedDates.length > 0 ? (
             <div className="space-y-6">
               {sortedDates.map((date) => (
                 <div key={date} className="rounded-xl border border-gray-100 bg-white p-6 shadow-sm dark:border-gray-700 dark:bg-gray-800">
                   <div className="mb-6 flex items-center gap-3">
-                    <Calendar className="h-6 w-6 text-[#03045e]" />
+                    <Calendar className="h-6 w-6 text-[#03045e] dark:text-white" />
                     <h3 className="text-xl font-bold text-gray-900 dark:text-white">
                       {new Date(date).toLocaleDateString("fr-FR", {
                         weekday: "long",

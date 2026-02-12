@@ -195,41 +195,43 @@ export default function ProfilPage() {
   return (
     <MainLayout>
       <div className="flex-1 overflow-y-auto bg-gray-50 dark:bg-transparent">
-        <div className="border-b border-gray-200 bg-white px-6 py-4 dark:border-gray-700 dark:bg-gray-800">
-          <div className="flex items-center justify-between">
-            <div>
+        <div className="border-b border-gray-200 bg-white px-4 py-4 dark:border-gray-700 dark:bg-gray-800 sm:px-6">
+          <div className="flex flex-wrap items-start gap-3 sm:items-center sm:justify-between">
+            <div className="min-w-0 flex-1">
               <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Mon Profil</h1>
               <p className="mt-1 text-sm text-gray-600 dark:text-gray-400">
                 Gérez vos informations personnelles et académiques
               </p>
             </div>
-            {!isEditing ? (
-              <button
-                onClick={() => setIsEditing(true)}
-                className="px-4 py-2 bg-[#03045e] text-white rounded-lg font-semibold hover:bg-[#023e8a] transition flex items-center gap-2"
-              >
-                <Edit2 className="w-4 h-4" />
-                Modifier
-              </button>
-            ) : (
-              <div className="flex gap-2">
+            <div className="flex w-full flex-shrink-0 flex-wrap gap-2 sm:w-auto">
+              {!isEditing ? (
                 <button
-                  onClick={handleCancel}
-                  className="flex items-center gap-2 rounded-lg border border-gray-300 px-4 py-2 text-gray-700 transition hover:bg-gray-50 dark:border-gray-600 dark:text-gray-200 dark:hover:bg-gray-700"
+                  onClick={() => setIsEditing(true)}
+                  className="inline-flex items-center gap-2 rounded-lg bg-[#03045e] px-4 py-2 font-semibold text-white transition hover:bg-[#023e8a]"
                 >
-                  <X className="w-4 h-4" />
-                  Annuler
+                  <Edit2 className="h-4 w-4" />
+                  Modifier
                 </button>
-                <button
-                  onClick={handleSave}
-                  disabled={saving}
-                  className="px-4 py-2 bg-[#d90429] text-white rounded-lg font-semibold hover:bg-[#b0031f] transition flex items-center gap-2 disabled:opacity-60 disabled:cursor-not-allowed"
-                >
-                  <Save className="w-4 h-4" />
-                  {saving ? "Enregistrement…" : "Enregistrer"}
-                </button>
-              </div>
-            )}
+              ) : (
+                <>
+                  <button
+                    onClick={handleCancel}
+                    className="inline-flex items-center gap-2 rounded-lg border border-gray-300 px-4 py-2 text-gray-700 transition hover:bg-gray-50 dark:border-gray-600 dark:text-gray-200 dark:hover:bg-gray-700"
+                  >
+                    <X className="h-4 w-4" />
+                    Annuler
+                  </button>
+                  <button
+                    onClick={handleSave}
+                    disabled={saving}
+                    className="inline-flex items-center gap-2 rounded-lg bg-[#d90429] px-4 py-2 font-semibold text-white transition hover:bg-[#b0031f] disabled:cursor-not-allowed disabled:opacity-60"
+                  >
+                    <Save className="h-4 w-4" />
+                    {saving ? "Enregistrement…" : "Enregistrer"}
+                  </button>
+                </>
+              )}
+            </div>
           </div>
         </div>
 
