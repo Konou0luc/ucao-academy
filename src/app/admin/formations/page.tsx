@@ -39,6 +39,32 @@ const formatNiveau = (niveau: string | null | undefined) => {
   return niveau;
 };
 
+function toCourseRow(
+  c: {
+    _id?: string;
+    id?: string;
+    title: string;
+    category: string;
+    status: string;
+    niveau?: string | null;
+    created_by?: { name?: string; email?: string };
+    user?: { name?: string; email?: string };
+    semester?: string | null;
+    academic_year?: number | null;
+    [key: string]: unknown;
+  }
+): CourseRow {
+  const raw = c.created_by ?? c.user;
+  const user: { name: string; email: string } | undefined = raw
+    ? { name: raw.name ?? "", email: raw.email ?? "" }
+    : undefined;
+  return {
+    ...c,
+    id: c.id ?? c._id ?? "",
+    user,
+  };
+}
+
 export default function CoursAdmin() {
   const [cours, setCours] = useState<CourseRow[]>([]);
   const [loading, setLoading] = useState(true);
@@ -65,13 +91,13 @@ export default function CoursAdmin() {
         limit: PAGE_SIZE,
         page: pageNum,
       })
-      .then((res: { _id?: string; id?: string; title: string; category: string; status: string; niveau?: string | null; created_by?: { name?: string; email?: string }; user?: { name: string; email: string }; semester?: string | null; academic_year?: number | null }[] | { data: typeof cours; total: number }) => {
+      .then((res: { _id?: string; id?: string; title: string; category: string; status: string; niveau?: string | null; created_by?: { name?: string; email?: string }; user?: { name?: string; email?: string }; semester?: string | null; academic_year?: number | null }[] | { data: unknown[]; total: number }) => {
         if (Array.isArray(res)) {
-          setCours(res.map((c) => ({ ...c, id: (c as { _id?: string }).id ?? (c as { _id?: string })._id ?? "", user: (c as { created_by?: { name?: string; email?: string }; user?: { name: string; email: string } }).created_by ?? (c as { user?: { name: string; email: string } }).user })));
+          setCours(res.map((c) => toCourseRow(c)));
           setTotal(res.length);
         } else {
           const list = (res as { data: unknown[] }).data || [];
-          setCours(list.map((c: { _id?: string; id?: string; created_by?: { name?: string; email?: string }; user?: { name: string; email: string }; [key: string]: unknown }) => ({ ...c, id: c.id ?? c._id ?? "", user: c.created_by ?? c.user })));
+          setCours(list.map((c) => toCourseRow(c as Parameters<typeof toCourseRow>[0])));
           setTotal((res as { total: number }).total ?? 0);
         }
       })
